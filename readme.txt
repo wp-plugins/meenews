@@ -45,9 +45,20 @@ To install the plugin:
 
 = A question that someone might have =
 
-An answer to that question.
+= how translate the plugin? =
+  you have 2 folders in plugin spanish_version and english_version you only copy and paste de archives in root plugin folder and automatic translate the plugin..
 
-= What about foo bar? =
+  **spanish**
+
+¿ como traduzco el plugin ?
+
+    En el plugin hay 2 carpetas spanish_version y english_version unicamente tienes que copiar y pegar los archivos que contienen en el raiz y automaticamente se instalará en el idioma deseado,
+    luego entras en el administrador lo desinstalas y lo vuelves a activar y se habra traducido todo, cuidado perderas todos los datos que hubieras introducido.
+
+
+If you want the translate version you have it in http://www.wp-newsletter.com
+
+tu tienes la version traducida en http://www.wp-newsletter.com
 
 Answer to foo bar dilemma.
 
