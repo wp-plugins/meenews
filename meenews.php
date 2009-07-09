@@ -32,25 +32,25 @@ if (!function_exists('add_action')) {
 add_action('admin_menu', 'newsletter_menu');
 function newsletter_menu() {
 	if (function_exists('add_menu_page')) {
-		add_menu_page(__('Newsletter', 'wp-TVnewsletter'), __('Newsletter', 'wp-TVnewsletter'), 'manage_newsletter', 'wp-TVnewsletter/Configuration.php', '', plugins_url('wp-TVnewsletter/tv_newsletter.png'));
+		add_menu_page(__('Newsletter', 'meenews'), __('Newsletter', 'meenews'), 'manage_newsletter', 'meenews/Configuration.php', '', plugins_url('meenews/tv_newsletter.png'));
 	}
 
     if (function_exists('add_submenu_page')) {
-		add_submenu_page('wp-TVnewsletter/Configuration.php', __('Configuration', 'wp-TVnewsletter'), __('Configuracion', 'wp-TVnewsletter'), 'manage_newsletter', 'wp-TVnewsletter/Configuration.php');
-        add_submenu_page('wp-TVnewsletter/Configuration.php', __('List and subscribers', 'wp-TVnewsletter'), __('Suscritos y Categorias', 'wp-TVnewsletter'), 'manage_newsletter', 'wp-TVnewsletter/catandsuscribes.php');
-        add_submenu_page('wp-TVnewsletter/Configuration.php', __('Design Newsletter', 'wp-TVnewsletter'), __('Diseño Newsletter', 'wp-TVnewsletter'), 'manage_newsletter', 'wp-TVnewsletter/designNewsletter.php');
-        add_submenu_page('wp-TVnewsletter/Configuration.php', __('Sends', 'wp-TVnewsletter'), __('Envios', 'wp-TVnewsletter'), 'manage_newsletter', 'wp-TVnewsletter/manageNewsletters.php');
-        add_submenu_page('wp-TVnewsletter/Configuration.php', __('Uninstall', 'wp-TVnewsletter'), __('Desinstalar', 'wp-TVnewsletter'), 'manage_newsletter', 'wp-TVnewsletter/uninstall.php');
+		add_submenu_page('meenews/Configuration.php', __('Configuration', 'meenews'), __('Configuracion', 'meenews'), 'manage_newsletter', 'meenews/Configuration.php');
+        add_submenu_page('meenews/Configuration.php', __('List and subscribers', 'meenews'), __('Suscritos y Categorias', 'meenews'), 'manage_newsletter', 'meenews/catandsuscribes.php');
+        add_submenu_page('meenews/Configuration.php', __('Design Newsletter', 'meenews'), __('Diseño Newsletter', 'meenews'), 'manage_newsletter', 'meenews/designNewsletter.php');
+        add_submenu_page('meenews/Configuration.php', __('Sends', 'meenews'), __('Envios', 'meenews'), 'manage_newsletter', 'meenews/manageNewsletters.php');
+        add_submenu_page('meenews/Configuration.php', __('Uninstall', 'meenews'), __('Desinstalar', 'meenews'), 'manage_newsletter', 'meenews/uninstall.php');
 	}
 
 
  
     // Add In Options
     ### Function: Process Subscription
-    //add_action('init', array('wp-TVnewsletter','frontEndForm'));
+    //add_action('init', array('meenews','frontEndForm'));
     //
 	//everytime a page loads we check if new posts are available
-	//add_action('init', array('wp-TVnewsletter', 'checkAutomaticNewsletter'));
+	//add_action('init', array('meenews', 'checkAutomaticNewsletter'));
 
 
 	$role = get_role('administrator');
