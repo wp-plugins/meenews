@@ -1,5 +1,5 @@
 === Mee News ===
-Contributors: www.wp-newsletter.com
+Contributors: Daniel perez, Tierravirtual.com
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6678255
 Tags: newsletter, mail, mailing, lists
 Requires at least: 2.7.0
@@ -53,12 +53,12 @@ Answer to foo bar dilemma.
 
 == Screenshots ==
 
-1. Modify newsletter header, and title and background color 1.png
-2. Modify Front End form subscribers 2.png
-3. Modify colors and sizes, and select or not images 3.png
-4. Manage List 4.png
-5. Example newsletter 5.png
-6. Other example 6.png
+1. Modify newsletter header, and title and background color 
+2. Modify Front End form subscribers 
+3. Modify colors and sizes, and select or not images
+4. Manage List 
+5. Example newsletter 
+6. Other example 
 == Changelog ==
 
 Leer **[Readme > Changelog](http://www.wp-newsletter.com/)**.
