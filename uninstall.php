@@ -13,7 +13,7 @@ if($_POST["send"]=="Cancelar"){
 
 <div class="wrap">
 			<h2><?php _e($traducciones['textDesinstalador']); ?></h2>
-			<form id="settings" name="settings" action="?page=wp-TVnewsletter/uninstall.php&amp;mode=general" method="post">
+			<form id="settings" name="settings" action="?page=meenews/uninstall.php&amp;mode=general" method="post">
 				<table class="widefat">
 					<tbody>
 						

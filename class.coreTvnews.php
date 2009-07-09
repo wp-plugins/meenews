@@ -21,7 +21,7 @@ class TvNewsletter {
         $colorBackground =      get_option("TVnews_colorBackground");
         $colorBody =      get_option("TVnews_colorBody");
 
-		$path = get_bloginfo("wpurl") . "/wp-content/plugins/wp-TVnewsletter/"
+		$path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
 
         
 		?>
@@ -35,7 +35,7 @@ class TvNewsletter {
 
 		<div class="wrap">
 			<h2><?php _e($traducciones['Tit_1']); ?></h2>
-			<form id="settings" name="settings" action="?page=wp-TVnewsletter/Configuration.php&amp;mode=senders" enctype="multipart/form-data" method="post">
+			<form id="settings" name="settings" action="?page=meenews/Configuration.php&amp;mode=senders" enctype="multipart/form-data" method="post">
 				<table class="widefat">
 					<tbody>
 						
@@ -57,7 +57,7 @@ class TvNewsletter {
                         <tr>
                             <th style="text-align:left;vertical-align:top;" scope="row"><label style="vertical-align:top;" for="letterSubject"><?php echo $traducciones['textIAC']; ?></label></th>
                             <td id="customimage">
-                                <img src="<?php  echo plugins_url('wp-TVnewsletter/customimages/'.$headImage); ?>"  >
+                                <img src="<?php  echo plugins_url('meenews/customimages/'.$headImage); ?>"  >
 
 							</td>
                         </tr>
@@ -97,7 +97,7 @@ class TvNewsletter {
      function configurationTemplate(){
          global $traducciones;
 		$style = 	get_option("TVnews_styleSelected");
-		$path = get_bloginfo("wpurl") . "/wp-content/plugins/wp-TVnewsletter/"
+		$path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
 		?>
 		<script type="text/javascript">
 			function toggleState (value, elementId) {
@@ -109,7 +109,7 @@ class TvNewsletter {
 
 		<div class="wrap">
 			<h2><?php _e($traducciones['Tit_2']); ?></h2>
-			<form id="settings" name="settings" action="?page=wp-TVnewsletter/Configuration.php&amp;mode=senders" method="post">
+			<form id="settings" name="settings" action="?page=meenews/Configuration.php&amp;mode=senders" method="post">
 				<table class="widefat">
 					<tbody>
 						<tr>
@@ -127,11 +127,11 @@ class TvNewsletter {
                         <tr>
                             
                             <td id="customimage">
-                                <img src="<?php  echo plugins_url('wp-TVnewsletter/images/template2.jpg'); ?>" width="100" >
+                                <img src="<?php  echo plugins_url('meenews/images/template2.jpg'); ?>" width="100" >
 
 							</td>
                             <td id="customimage">
-                                <img src="<?php  echo plugins_url('wp-TVnewsletter/images/template3.jpg'); ?>" width="100" >
+                                <img src="<?php  echo plugins_url('meenews/images/template3.jpg'); ?>" width="100" >
 
 							</td>
                         </tr>
@@ -167,7 +167,7 @@ class TvNewsletter {
         $sizeSeparator =      get_option("TVnews_sizeSeparator");
 	
 		?>
-        <script type="text/javascript" src='<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/wp-TVnewsletter/js/sevencolorpicker.js'></script>
+        <script type="text/javascript" src='<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/js/sevencolorpicker.js'></script>
 		<script type="text/javascript">
 			function toggleState (value, elementId) {
 				var element = document.getElementById(elementId);
@@ -178,7 +178,7 @@ class TvNewsletter {
 
 		<div class="wrap">
 			<h2><?php _e($traducciones['Tit_3']); ?></h2>
-			<form id="settings" name="settings" action="?page=wp-TVnewsletter/Configuration.php&amp;mode=general" method="post">
+			<form id="settings" name="settings" action="?page=meenews/Configuration.php&amp;mode=general" method="post">
 				<table class="widefat">
 					<tbody>
 						<tr>
@@ -300,7 +300,7 @@ class TvNewsletter {
 		?>
 		<div class="wrap">
 			<h2><?php _e($traducciones['Tit_3']); ?></h2>
-			<form id="settings" name="settings" action="?page=wp-TVnewsletter/Configuration.php&amp;mode=general"  enctype="multipart/form-data" method="post">
+			<form id="settings" name="settings" action="?page=meenews/Configuration.php&amp;mode=general"  enctype="multipart/form-data" method="post">
 				<table class="widefat">
 					<tbody>
 
@@ -337,7 +337,7 @@ class TvNewsletter {
                         <tr>
                             <th style="text-align:left;vertical-align:top;" scope="row"><label style="vertical-align:top;" for="letterSubject"> <?php echo $traducciones['textIABoton']; ?> </label></th>
                             <td id="customimage">
-                                <img src="<?php  echo plugins_url('wp-TVnewsletter/customimages/'.$inputTextImage); ?>" >
+                                <img src="<?php  echo plugins_url('meenews/customimages/'.$inputTextImage); ?>" >
 
 							</td>
                         </tr>
@@ -376,7 +376,7 @@ class TvNewsletter {
    
        <div class="wrap">
 			<h2><?php _e($traducciones['Tit_4']); ?></h2>
-			<form id="settings" name="settings" action="?page=wp-TVnewsletter/Configuration.php&amp;mode=general" method="post">
+			<form id="settings" name="settings" action="?page=meenews/Configuration.php&amp;mode=general" method="post">
 				<table class="widefat">
 					<tbody>
 
@@ -444,7 +444,7 @@ class TvNewsletter {
     function UsersInsertBackPanel(){
 		//Get al plugin options to fill the form
         global $traducciones;
-		$path = get_bloginfo("wpurl") . "/wp-content/plugins/wp-TVnewsletter/"
+		$path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
 		?>
         <script type="text/javascript">
 			function toggleState (value, elementId) {
@@ -455,7 +455,7 @@ class TvNewsletter {
 		</script>
 		<div class="wrap">
 			<h2><?php _e($traducciones['Tit_5']); ?></h2>
-			<form id="settings" name="settings" action="?page=wp-TVnewsletter/catandsuscribes.php&amp;mode=general" method="post">
+			<form id="settings" name="settings" action="?page=meenews/catandsuscribes.php&amp;mode=general" method="post">
 				<table class="widefat">
 					<tbody>
                    
@@ -495,7 +495,7 @@ class TvNewsletter {
 function categoryInsertBackPanel(){
 		
         global $traducciones;
-		$path = get_bloginfo("wpurl") . "/wp-content/plugins/wp-TVnewsletter/"
+		$path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
 		?>
         <script type="text/javascript">
 			function toggleState (value, elementId) {
@@ -506,7 +506,7 @@ function categoryInsertBackPanel(){
 		</script>
 		<div class="wrap">
 			<h2><?php _e($traducciones['Tit_6']); ?></h2>
-			<form id="settings" name="settings" action="?page=wp-TVnewsletter/catandsuscribes.php&amp;mode=general" method="post">
+			<form id="settings" name="settings" action="?page=meenews/catandsuscribes.php&amp;mode=general" method="post">
 				<table class="widefat">
 					<tbody>
 						 <tr>
@@ -528,7 +528,7 @@ function categoryInsertBackPanel(){
     function ImportSusbcribers(){
 
         global $traducciones;
-		$path = get_bloginfo("wpurl") . "/wp-content/plugins/wp-TVnewsletter/"
+		$path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
 		?>
         <script type="text/javascript">
 			function toggleState (value, elementId) {
@@ -539,7 +539,7 @@ function categoryInsertBackPanel(){
 		</script>
 		<div class="wrap">
 			<h2><?php _e($traducciones['Tit_12']); ?></h2>
-			<form id="settings" name="settings" action="?page=wp-TVnewsletter/catandsuscribes.php&amp;mode=general" enctype="multipart/form-data" method="post">
+			<form id="settings" name="settings" action="?page=meenews/catandsuscribes.php&amp;mode=general" enctype="multipart/form-data" method="post">
 				<table class="widefat">
 					<tbody>
                         <tr>
@@ -578,7 +578,7 @@ function categoryInsertBackPanel(){
 		global $traducciones;
         $categories = 	get_option("TVnews_categories");
         $categories = explode(",", $categories);
-		$path = get_bloginfo("wpurl") . "/wp-content/plugins/wp-TVnewsletter/"
+		$path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
 		?>
 		<script type="text/javascript">
 			function toggleState (value, elementId) {
@@ -589,7 +589,7 @@ function categoryInsertBackPanel(){
 		</script>
 		<div class="wrap">
 			<h2><?php _e($traducciones['Tit_7']); ?></h2>
-			<form id="settings" name="settings" action="?page=wp-TVnewsletter/Configuration.php&amp;mode=categories" method="post">
+			<form id="settings" name="settings" action="?page=meenews/Configuration.php&amp;mode=categories" method="post">
 				<table class="widefat">
 					<tbody>
 						<tr>
@@ -736,13 +736,13 @@ function categoryInsertBackPanel(){
 
 						<?php if($member->estado == "espera"){?>
 							<a class="edit"
-			href="<?php echo "?page=wp-TVnewsletter/catandsuscribes.php&amp;actv=".$member->id; ?>#msgMembers"
+			href="<?php echo "?page=meenews/catandsuscribes.php&amp;actv=".$member->id; ?>#msgMembers"
 			onclick="return ActivateConfirm('<?php echo $member->email; ?>');"><?php echo $traducciones['textActivar']; ?></a>
 						<?php }else{ echo "Activo"; } ?>
 						</td>
 						<td>
 							<a class="delete"
-			href="?page=wp-TVnewsletter/catandsuscribes.php&amp;del=<?php echo $member->id; ?>&user=<?php echo $member->id; ?>#msgMembers"
+			href="?page=meenews/catandsuscribes.php&amp;del=<?php echo $member->id; ?>&user=<?php echo $member->id; ?>#msgMembers"
 			onclick="return DelConfirm('<?php echo $member->email; ?>');"><?php echo $traducciones['textBorrar']; ?></a>
 						</td>
 					</tr>
@@ -804,7 +804,7 @@ function categoryInsertBackPanel(){
 						<td><?php echo $list->categoria; ?></td>
 						<td><?php echo $member->joined; ?></td>
 						<td  colspan="2" scope="col" style="width:4em;text-align:center">	<a class="delete"
-			href="<?php echo "?page=wp-TVnewsletter/catandsuscribes.php&amp;cat=true&del=".$list->id; ?>#msgMembers"
+			href="<?php echo "?page=meenews/catandsuscribes.php&amp;cat=true&del=".$list->id; ?>#msgMembers"
 			onclick="return DelConfirmlist('<?php echo $list->categoria; ?>');"><?php echo $traducciones['textBorrar']; ?></a>
 						</td>					
 					</tr>
@@ -827,7 +827,7 @@ function categoryInsertBackPanel(){
      function manageNewsletters(){
          global $traducciones;
         $lists = TvDesignNews::getSavedNewsletters();
-        $urs = plugins_url("wp-TVnewsletter/manageNewsletters.php");
+        $urs = plugins_url("meenews/manageNewsletters.php");
 
         ?>
 		<script type="text/javascript">
@@ -876,7 +876,7 @@ function categoryInsertBackPanel(){
                                 data: "show=Envia&newsletter="+newsletterPick+"&lista="+lista,
                                 beforeSend: function(objeto){
                                    $(".estateSend").html("<?php echo $traducciones['textJaTEnviando']; ?>&nbsp;"+cuantos);
-                                    $(".barrita").html('<img  src="<?php  echo plugins_url('wp-TVnewsletter/images/ajax-loader.gif'); ?>" >');
+                                    $(".barrita").html('<img  src="<?php  echo plugins_url('meenews/images/ajax-loader.gif'); ?>" >');
                                 },
                                 success: function(datos){
                                  dondeEsta = dondeEsta + cuantos;
@@ -936,7 +936,7 @@ function categoryInsertBackPanel(){
                         <a style="color:#a9e000"
 			href="javascript:sendConfirm('<?php echo $list->id; ?>')" ><?php echo $traducciones['textEnviar']; ?> /</a>
             <a class="delete"
-			href="<?php echo "?page=wp-TVnewsletter/manageNewsletters.php&amp;del=".$list->id; ?>"
+			href="<?php echo "?page=meenews/manageNewsletters.php&amp;del=".$list->id; ?>"
 			onclick="return DelConfirmlist('<?php echo $list->title; ?>');"><?php echo $traducciones['textBorrar']; ?></a>
 						</td>
 					</tr>
@@ -992,17 +992,17 @@ function categoryInsertBackPanel(){
     function desingNewsletterBack(){
         global $traducciones;
         $lists = TvUsersNews::getListSuscribes();
-        $urs = plugins_url("wp-TVnewsletter/designNewsletter.php");
+        $urs = plugins_url("meenews/designNewsletter.php");
         $url = get_bloginfo("wpurl");
 		?>
-        <script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/wp-TVnewsletter/js/nicEdit.js"></script>
+        <script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/js/nicEdit.js"></script>
         <script type="text/javascript">
         bkLib.onDomLoaded(function() {
             new nicEditor(
                 {
                 maxHeight : '100',
                 buttonList : ['save','bold','italic','underline','left','center','right','justify','ol','ul','fontSize','fontFamily','fontFormat','indent','outdent','image','upload','link','unlink','forecolor','bgcolor'],
-                iconsPath : '../wp-content/plugins/wp-TVnewsletter/js/nicEditorIcons.gif'
+                iconsPath : '../wp-content/plugins/meenews/js/nicEditorIcons.gif'
                 }
             ).panelInstance('customMesage');
         });
@@ -1019,7 +1019,7 @@ function categoryInsertBackPanel(){
                             url: url,
                             data: "show=Post&id="+idpost,
                             beforeSend: function(objeto){
-                                     $("#Inc"+idpost).html('<img  src="<?php  echo plugins_url('wp-TVnewsletter/images/ajax-loader2.gif'); ?>" >');
+                                     $("#Inc"+idpost).html('<img  src="<?php  echo plugins_url('meenews/images/ajax-loader2.gif'); ?>" >');
                                 },
                             success: function(datos){
                                 $(".lista").append("<li id='"+idpost+"'><a href='"+urlblog+"?p="+idpost+"'>"+titulo+"</a></li>");
@@ -1078,7 +1078,7 @@ function categoryInsertBackPanel(){
 		</style>
         <div id="snewsMembers" class="wrap">
         <h2><?php _e('Titulo del newsletter:'); ?></h2>
-         <form id="settings" name="settings" action="?page=wp-TVnewsletter/designNewsletter.php&amp;mode=save" method="post">
+         <form id="settings" name="settings" action="?page=meenews/designNewsletter.php&amp;mode=save" method="post">
             <input type="text" style="width:250px;" name="titleDesign" id="titleDesign" value="" /><br />
             <textarea name="finalDesign" id="finalDesign" rows="6" cols="75" style="display:none"></textarea>
             <div class="submit">
@@ -1244,7 +1244,7 @@ function categoryInsertBackPanel(){
 		$url = get_bloginfo("wpurl");
         $message = 	get_option("TVnews_messageConfirmationMail");
 
-		$confirmationURL = $url . "/wp-content/plugins/wp-TVnewsletter/confirmation.php?add=$confKey";
+		$confirmationURL = $url . "/wp-content/plugins/meenews/confirmation.php?add=$confKey";
        
        
         $search = "<--Titulo-->";
@@ -1349,12 +1349,12 @@ function categoryInsertBackPanel(){
         
 		foreach ($members as $member){
 			$to  = $member->email;
-            $novisibleLink =  get_bloginfo("wpurl") . "/wp-content/plugins/wp-TVnewsletter/frontManage.php?Showing=ShowNewsletter&NewsId=".$newsletternum;
+            $novisibleLink =  get_bloginfo("wpurl") . "/wp-content/plugins/meenews/frontManage.php?Showing=ShowNewsletter&NewsId=".$newsletternum;
             $novisibleLink = "<a href='$novisibleLink'>".$traducciones['textAqui']."</a>";
             $search = "&lt;--AquiLink--&gt;";
             $replace = $novisibleLink;
             $content = str_replace($search, $replace, $content);
-			$confirmationURL = get_bloginfo("wpurl") . "/wp-content/plugins/wp-TVnewsletter/confirmation.php?del={$member->confkey}";
+			$confirmationURL = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/confirmation.php?del={$member->confkey}";
             $search = "&lt;--confirmationurl--&gt;";
             $replace = $confirmationURL;
             $content = str_replace($search, $replace, $content);
@@ -1400,8 +1400,8 @@ function categoryInsertBackPanel(){
 	function activateNewsletterPlugin($list = "1", $email = ""){
         global $traducciones;
 		$action = get_bloginfo("url");
-        $urloading = plugins_url('wp-TVnewsletter/images/ajax-loader2.gif');
-        $newsletterURL= get_bloginfo("wpurl") . "/wp-content/plugins/wp-TVnewsletter/";
+        $urloading = plugins_url('meenews/images/ajax-loader2.gif');
+        $newsletterURL= get_bloginfo("wpurl") . "/wp-content/plugins/meenews/";
         $inputTextColor = 	get_option("TVnews_inputTextColor");
 		$inputTextBackColor = 	get_option("TVnews_inputTextBackColor");
         $inputTextBorderColor =      get_option("TVnews_inputTextBorderColor");
@@ -1450,7 +1450,7 @@ function categoryInsertBackPanel(){
                <?php   }else{ ?>
                     <input type="hidden" id="listSuscribes" name="listSuscribes" value="<?php echo $list ?>" />
                  <?php  } ?>
-                            <a href="javascript:Inscribe()" style="float:left; margin-top:0px;"><img  src="<?php  echo plugins_url('wp-TVnewsletter/customimages/'.$inputTextImage); ?>" ></a>
+                            <a href="javascript:Inscribe()" style="float:left; margin-top:0px;"><img  src="<?php  echo plugins_url('meenews/customimages/'.$inputTextImage); ?>" ></a>
             </div>
             <div id="firma"><?php echo $vinculo; ?></div>
         </form>
@@ -1470,7 +1470,7 @@ function categoryInsertBackPanel(){
 		$title = get_bloginfo("name");
 		$url = get_bloginfo("wpurl");
         $message =      get_option("TVnews_messageSuccesMail");
-		$confirmationURL = $url . "/wp-content/plugins/wp-TVnewsletter/confirmation.php?del=$key";
+		$confirmationURL = $url . "/wp-content/plugins/meenews/confirmation.php?del=$key";
 
         $search = "<--Titulo-->";
         $replace = $title;
@@ -1585,7 +1585,7 @@ function htmlConfPage($content){
 <body>
 <table width="600" border="0" cellpadding="0" cellspacing="0" <?php echo $estilos; ?> class="newsletter">
   <tr>
-    <td colspan="2"><img src='<?php echo plugins_url('wp-TVnewsletter/customimages/'.$headImage) ?>'></td>
+    <td colspan="2"><img src='<?php echo plugins_url('meenews/customimages/'.$headImage) ?>'></td>
   </tr>
   <tr>
     <td colspan="2"><div style='background-color:#<?php echo $colorH1; ?>; color:<?php echo $colorBackground; ?>;width:100%; height:16px; text-align: center;padding-top:12px'><?php bloginfo('home'); ?></div></td>

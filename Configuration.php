@@ -76,7 +76,7 @@ if($_POST["send"]==$traducciones['Btn_AE']){
 
 			// Características de la nueva imagen
 			$imagenoriginal = $_FILES['imagen_cabecera']['tmp_name'];
-			$dirdestino = "../wp-content/plugins/wp-TVnewsletter/customimages/";
+			$dirdestino = "../wp-content/plugins/meenews/customimages/";
 			$nombrefinal = $nombre_archivo_final;
 			$anchofinal = 600;
 			$altofinal = 700;
@@ -111,7 +111,7 @@ if($_POST["send"]==$traducciones['Btn_AE']){
 
 			// Características de la nueva imagen
 			$imagenoriginal = $_FILES['imagen_fondo']['tmp_name'];
-			$dirdestino = "../wp-content/plugins/wp-TVnewsletter/customimages/";
+			$dirdestino = "../wp-content/plugins/meenews/customimages/";
 			$nombrefinal = $nombre_archivo_final;
 			$anchofinal = 700;
 			$altofinal = 900;
@@ -154,7 +154,7 @@ if($_POST["send"]==$traducciones['Btn_AFE']){
 
 			// Características de la nueva imagen
 			$imagenoriginal = $_FILES['imagen_boton']['tmp_name'];
-			$dirdestino = "../wp-content/plugins/wp-TVnewsletter/customimages/";
+			$dirdestino = "../wp-content/plugins/meenews/customimages/";
 			$nombrefinal = $nombre_archivo_final;
 			$anchofinal = 100;
 			$altofinal = 80;
@@ -202,9 +202,9 @@ if($_POST["send"]==$traducciones['Btn_AFE']){
 //prints the HTML to configure the newsletter
 ?>
 
-<script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/wp-TVnewsletter/js/ui.core.js"></script>
-<script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/wp-TVnewsletter/js/ui.tabs.js"></script>
-<link href="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/wp-TVnewsletter/css/ui.tabs.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/js/ui.core.js"></script>
+<script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/js/ui.tabs.js"></script>
+<link href="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/css/ui.tabs.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 // Tabs
 jQuery(document).ready(function() {

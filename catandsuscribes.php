@@ -86,7 +86,7 @@ if($_POST["send"]== $traducciones['Btn_Import'] ){
     $confirmation = $_POST["confirmacion"];
     $file = basename($_FILES['userfile']['name']);
 	$ext = explode('.', $file);
-	$uploaddir = "../wp-content/plugins/wp-TVnewsletter/customimages/";
+	$uploaddir = "../wp-content/plugins/meenews/customimages/";
 	$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
     $i = 1;
     if($ext[1] == 'csv' || $ext[1] == 'txt'){
@@ -115,9 +115,9 @@ TvNewsletter::echoAdvertiseMessage($message,$result);
 }
 ?>
 
-<script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/wp-TVnewsletter/js/ui.core.js"></script>
-<script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/wp-TVnewsletter/js/ui.tabs.js"></script>
-<link href="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/wp-TVnewsletter/css/ui.tabs.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/js/ui.core.js"></script>
+<script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/js/ui.tabs.js"></script>
+<link href="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/css/ui.tabs.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 // Tabs
 jQuery(document).ready(function() {

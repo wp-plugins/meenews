@@ -102,7 +102,7 @@ class TvDesignNews {
         $replace = $messageHeaderNewsMail;
         $final['message'] = str_replace($search, $replace, $final['message']);
         $search = "<--HeadImage-->";
-        $replace = "<img src='". plugins_url('wp-TVnewsletter/customimages/'.$headImage) ."'>";
+        $replace = "<img src='". plugins_url('meenews/customimages/'.$headImage) ."'>";
         $final['message'] = str_replace($search, $replace, $final['message']);
         $search = "<--Lista-->";
         $replace = "<ul class='lista'></ul>";

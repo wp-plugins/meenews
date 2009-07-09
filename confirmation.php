@@ -1,6 +1,6 @@
 <?php
 include_once("../../../wp-blog-header.php");
-include_once("wp-TVnewsletter.php");
+include_once("meenews.php");
 
 $del = $_REQUEST["del"];
 $add = $_REQUEST["add"];
