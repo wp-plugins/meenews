@@ -1,5 +1,5 @@
-=== wp-TVnewsletter ===
-Contributors: www.wp-newsletter.com
+=== Mee News ===
+Contributors: www.tierravirtual.com
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6678255
 Tags: newsletter, mail, mailing, lists
 Requires at least: 2.7.0
