@@ -32,25 +32,25 @@ if (!function_exists('add_action')) {
 add_action('admin_menu', 'newsletter_menu');
 function newsletter_menu() {
 	if (function_exists('add_menu_page')) {
-		add_menu_page(__('Newsletter', 'meenews'), __('Newsletter', 'meenews'), 'manage_newsletter', 'meenews/Configuration.php', '', plugins_url('meenews/tv_newsletter.png'));
+		add_menu_page(__('Newsletter', 'wp-TVnewsletter'), __('Newsletter', 'wp-TVnewsletter'), 'manage_newsletter', 'wp-TVnewsletter/Configuration.php', '', plugins_url('wp-TVnewsletter/tv_newsletter.png'));
 	}
 
     if (function_exists('add_submenu_page')) {
-		add_submenu_page('meenews/Configuration.php', __('Configuracion', 'meenews'), __('Configuracion', 'meenews'), 'manage_newsletter', 'meenews/Configuration.php');
-        add_submenu_page('meenews/Configuration.php', __('Suscritos y Categorias', 'meenews'), __('Suscritos y Categorias', 'meenews'), 'manage_newsletter', 'meenews/catandsuscribes.php');
-        add_submenu_page('meenews/Configuration.php', __('Diseño Newsletter', 'meenews'), __('Diseño Newsletter', 'meenews'), 'manage_newsletter', 'meenews/designNewsletter.php');
-        add_submenu_page('meenews/Configuration.php', __('Envios', 'meenews'), __('Envios', 'meenews'), 'manage_newsletter', 'meenews/manageNewsletters.php');
-        add_submenu_page('meenews/Configuration.php', __('Desinstalar', 'meenews'), __('Desinstalar', 'meenews'), 'manage_newsletter', 'meenews/uninstall.php');
+		add_submenu_page('wp-TVnewsletter/Configuration.php', __('Configuration', 'wp-TVnewsletter'), __('Configuracion', 'wp-TVnewsletter'), 'manage_newsletter', 'wp-TVnewsletter/Configuration.php');
+        add_submenu_page('wp-TVnewsletter/Configuration.php', __('List and subscribers', 'wp-TVnewsletter'), __('Suscritos y Categorias', 'wp-TVnewsletter'), 'manage_newsletter', 'wp-TVnewsletter/catandsuscribes.php');
+        add_submenu_page('wp-TVnewsletter/Configuration.php', __('Design Newsletter', 'wp-TVnewsletter'), __('Diseño Newsletter', 'wp-TVnewsletter'), 'manage_newsletter', 'wp-TVnewsletter/designNewsletter.php');
+        add_submenu_page('wp-TVnewsletter/Configuration.php', __('Sends', 'wp-TVnewsletter'), __('Envios', 'wp-TVnewsletter'), 'manage_newsletter', 'wp-TVnewsletter/manageNewsletters.php');
+        add_submenu_page('wp-TVnewsletter/Configuration.php', __('Uninstall', 'wp-TVnewsletter'), __('Desinstalar', 'wp-TVnewsletter'), 'manage_newsletter', 'wp-TVnewsletter/uninstall.php');
 	}
 
 
  
     // Add In Options
     ### Function: Process Subscription
-    //add_action('init', array('meenews','frontEndForm'));
+    //add_action('init', array('wp-TVnewsletter','frontEndForm'));
     //
 	//everytime a page loads we check if new posts are available
-	//add_action('init', array('meenews', 'checkAutomaticNewsletter'));
+	//add_action('init', array('wp-TVnewsletter', 'checkAutomaticNewsletter'));
 
 
 	$role = get_role('administrator');
@@ -99,16 +99,16 @@ function create_newsletter_tables() {
     add_option("TVnews_inputTextcolorLink", "000");
     add_option("TVnews_advertiseColor", "666");
     add_option("TVnews_inputTextImage", "boton.jpg");
-    add_option("TVnews_messageHeaderNewsMail", "Estimado usuario este newsletter contiene informacion acerca de mi web para cualquiero consulta no dudes en mandarme un mail a ejemplo@mail.com");
-    add_option("TVnews_messageConfirmationMail", "Se ha recibido una peticion de suscripcion al NewsLeter <--Titulo--> en:\n <--url--> \n
-                                                  \n para completar su suscripcion debera de hacer click sobre el siguiente Link:\n <--confirmationurl--> \n
-                                                  \n Si no desea recibir este NewsLetter, disculpe y por favor ignore este E-Mail.\n");
+    add_option("TVnews_messageHeaderNewsMail", "Hello, this newsletter contains information about my site for any query please send an email to ejemplo@mail.com");
+    add_option("TVnews_messageConfirmationMail", "Has received a subscription request to Newsletter <--Titulo--> at: \n <--url--> \n 
+                                                   \n order to complete your subscription must click on the following link: \n <--confirmationurl--> \ n 
+                                                   \n If you do not wish to receive this NewsLetter, apologize and please ignore this email. \n");
 
-    add_option("TVnews_messageDeleteMail", " Si no desea seguir recibiendo este Newsletter por favor haga click <a href='<--confirmationurl-->'>Aqui</a>
-                                             y automaticamente se anulara la suscripcion.\n");
-    add_option("TVnews_messageSuccesMail", "Se ha suscrito satisfactoriamente al NewsLetter <--Titulo--> en:\n <--url--> \n
-                                                  Si no quiere recibir este newsletter, use el link para elimininar su suscripcion:\n
-                                                  <--confirmationurl--> \n");
+    add_option("TVnews_messageDeleteMail", " If you no longer wish to receive this newsletter please click <a href ='<--confirmationurl--> '> Here </ a> 
+                                              and automatically unsubscribe. \n");
+    add_option("TVnews_messageSuccesMail", "It has been successfully subscribed to the newsletter <--Titulo-->  at: \n <--url--> \n 
+                                                   If you do not want to receive this newsletter, use the link to delete your subscription: \n 
+                                                    <--confirmationurl-->\n");
 
     global $wpdb;
     if(@is_file(ABSPATH.'/wp-admin/upgrade-functions.php')) {
