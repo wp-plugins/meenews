@@ -1,4 +1,4 @@
-=== Meenews ===
+=== wp-TVnewsletter ===
 Contributors: www.wp-newsletter.com
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6678255
 Tags: newsletter, mail, mailing, lists
