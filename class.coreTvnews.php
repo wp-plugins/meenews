@@ -1159,7 +1159,6 @@ function categoryInsertBackPanel(){
 			$url = get_permalink($post->ID);
 			$author = get_author_name($post->post_author);
 			$content = strip_tags($post->post_content);
-			$title =utf8_decode($title);
 
            if($wantImages == "true"){
                          $foto =  TvNewsletter::extractFoto($contenido);
