@@ -5,6 +5,8 @@ Tags: newsletter, mail, mailing, lists
 Requires at least: 2.7.0
 Tested up to: 2.8
 Stable tag: trunk
+Author URI:www.tierravirtual.com
+Plugin URI:www.wp-newsletter.com
 
 Plugin to send newsletters, manage lists of subscribers, shipping selective, choosing the post and send personalized messages.
 
