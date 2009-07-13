@@ -1,4 +1,15 @@
+
+$(document).ready(function() {
+
+   // Interceptamos el evento submit
+    $('#frontendform').submit(function() {
+  // Enviamos el formulario usando AJAX
+        Inscribe();
+        return false;
+    });
+})
 function Inscribe(){
+
       var url = $("#urlAjax").val()+"frontManage.php";
       if ($("#emailInput").val() == ""){
           alert("Introduce un titulo de newsletter antes de guardar");

@@ -23,7 +23,7 @@ class TvNewsletter {
 
 		$path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
 
-        
+
 		?>
 		<script type="text/javascript">
 			function toggleState (value, elementId) {
@@ -38,7 +38,7 @@ class TvNewsletter {
 			<form id="settings" name="settings" action="?page=meenews/Configuration.php&amp;mode=senders" enctype="multipart/form-data" method="post">
 				<table class="widefat">
 					<tbody>
-						
+
 						<tr>
 							<td colspan="2"><hr /></td>
 						</tr>
@@ -79,7 +79,7 @@ class TvNewsletter {
 								<input type="text" maxlength="8" size="8" name="colorBody" id="colorBody" value="#<?php echo $colorBody; ?>" /><br />
 							</td>
 						</tr>
-                        
+
 
 					</tbody>
 
@@ -125,7 +125,7 @@ class TvNewsletter {
 						  </th>
                           </tr>
                         <tr>
-                            
+
                             <td id="customimage">
                                 <img src="<?php  echo plugins_url('meenews/images/template2.jpg'); ?>" width="100" >
 
@@ -136,7 +136,7 @@ class TvNewsletter {
 							</td>
                         </tr>
                         <tr>
-							
+
 							<th style="text-align:left;vertical-align:top;" scope="row"><?php echo $traducciones['textCaracteristicas']; ?> :<?php echo $traducciones['textCaracteristicas2'];?> </th>
                             <th style="text-align:left;vertical-align:top;" scope="row"><?php echo $traducciones['textCaracteristicas']; ?>:<?php echo $traducciones['textCaracteristicas3']; ?> </th>
 						</tr>
@@ -165,7 +165,7 @@ class TvNewsletter {
         $sizeTexto =      get_option("TVnews_sizeText");
         $sizeLink =      get_option("TVnews_sizeLink");
         $sizeSeparator =      get_option("TVnews_sizeSeparator");
-	
+
 		?>
         <script type="text/javascript" src='<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/js/sevencolorpicker.js'></script>
 		<script type="text/javascript">
@@ -188,7 +188,7 @@ class TvNewsletter {
 				name="wantImages" value="true" onClick="toggleState(true, 'count');" /><label for="period_0"><?php echo $traducciones['textSi']; ?></label><br />
 								<input <?php if($wantImages=="false") echo "CHECKED" ?> type="radio" id="imagesFalse"
 				name="wantImages" value="false" onClick="toggleState(true, 'count');" /><label for="period_1"><?php echo $traducciones['textNo']; ?></label><br />
-								
+
 							</td>
 						</tr>
                          <tr>
@@ -213,7 +213,7 @@ class TvNewsletter {
 							<th style="text-align:left;vertical-align:top;" scope="row"><label style="vertical-align:top;" for="letterFrom"><?php echo $traducciones['textCT']; ?></label></th>
 							<td>
 								<input type="text" maxlength="8" size="8" name="colorH1" id="colorH1" value="#<?php echo $colorH1; ?>" /><br />
-							</td>                            
+							</td>
 						</tr>
                          <tr>
 							<th style="text-align:left;vertical-align:top;" scope="row"><label style="vertical-align:top;" for="letterFrom"> <?php echo $traducciones['textTT']; ?></label></th>
@@ -238,7 +238,7 @@ class TvNewsletter {
 							<td>
 								<input type="text" maxlength="8" size="8" name="colorLink" id="colorLink" value="#<?php echo $colorLink; ?>" /><br />
 							</td>
-						</tr>                      
+						</tr>
                        <tr>
 							<th scope="row" style="width:6em;text-align:left;vertical-align:top;"><?php echo $traducciones['textQS']; ?></th>
 							<td>
@@ -252,7 +252,7 @@ class TvNewsletter {
                         <tr>
 							<td colspan="2">
                                 <b><?php echo $traducciones['textNota']; ?></b><br />
-								<?php echo $traducciones['nota_2']; ?>									
+								<?php echo $traducciones['nota_2']; ?>
 							</td>
 						</tr>
                         <tr>
@@ -269,7 +269,7 @@ class TvNewsletter {
 						</tr>
 						<tr>
 							<td colspan="2"><hr /></td>
-						</tr>											
+						</tr>
 					</tbody>
 
 				</table>
@@ -373,7 +373,7 @@ class TvNewsletter {
         $messageSuccesMail =      get_option("TVnews_messageSuccesMail");
 
 		?>
-   
+
        <div class="wrap">
 			<h2><?php _e($traducciones['Tit_4']); ?></h2>
 			<form id="settings" name="settings" action="?page=meenews/Configuration.php&amp;mode=general" method="post">
@@ -458,8 +458,8 @@ class TvNewsletter {
 			<form id="settings" name="settings" action="?page=meenews/catandsuscribes.php&amp;mode=general" method="post">
 				<table class="widefat">
 					<tbody>
-                   
-						 
+
+
                         <tr>
 							<th style="text-align:left;vertical-align:top;" scope="row"><label style="vertical-align:top;" for="letterFrom"><?php echo $traducciones['textEmail']; ?></label></th>
 							<td>
@@ -480,7 +480,7 @@ class TvNewsletter {
 								<input  type="radio" id="confirmacion"
 				name="confirmacion" value="false" onClick="toggleState(true, 'count');" /><label for="period_1"> <?php echo $traducciones['textNo']; ?></label><br />
 							</td>
-						</tr>                  					
+						</tr>
 					</tbody>
 				</table>
 				<div class="submit">
@@ -493,7 +493,7 @@ class TvNewsletter {
 
 
 function categoryInsertBackPanel(){
-		
+
         global $traducciones;
 		$path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
 		?>
@@ -563,7 +563,7 @@ function categoryInsertBackPanel(){
 				name="confirmacion" value="false" onClick="toggleState(true, 'count');" /><label for="period_1"> <?php echo $traducciones['textNo']; ?></label><br />
 							</td>
 						</tr>
-                      
+
 					</tbody>
 				</table>
 				<div class="submit">
@@ -625,7 +625,7 @@ function categoryInsertBackPanel(){
 		<?php
 	}
 
-   
+
     function GetWpCategories()
 	{
 		global $wpdb;
@@ -645,7 +645,7 @@ function categoryInsertBackPanel(){
 			$results = array();
 		return $results;
 	}
-   
+
 	function checkEveryNewsletter(){
 		$period = get_option("TVnews_period");
 
@@ -663,7 +663,7 @@ function categoryInsertBackPanel(){
 			TvNewsletter::sendNewsletter($content);
 		}
 	}
-   
+
      function manageMembers(){
          global $traducciones;
 		$members = TvUsersNews::getMeAllMembers();
@@ -694,7 +694,7 @@ function categoryInsertBackPanel(){
 
 			<h2><?php _e($traducciones['Tit_8']); ?></h2>
             <p style="padding-top:5px;float:left"><?php _e($traducciones['Tit_9']); ?></p> <p style="float:left"> <?php echo TvUsersNews::getComboListSuscribes(true); ?></p>
-            
+
 			<?php
 			if($members != "" && count($members) > 0){
 			?>
@@ -729,7 +729,7 @@ function categoryInsertBackPanel(){
 							echo "(not registered)";
 						}
 						?></td>
-                        
+
                         <td><?php echo  TvUsersNews::getCategoryMemberName( $member->id_categoria );?></td>
 						<td><?php echo $member->joined; ?></td>
 						<td  style='text-align:center'>
@@ -761,8 +761,8 @@ function categoryInsertBackPanel(){
 		<?php
 	}
 
-    
-     
+
+
      function manageLists(){
 		$lists = TvUsersNews::getListSuscribes();
         global $traducciones;
@@ -777,7 +777,7 @@ function categoryInsertBackPanel(){
 		<div id="snewsMembers" class="wrap">
 
 			<h2><?php _e($traducciones['textLista']); ?></h2>
-        
+
 			<?php
 			if($lists != "" && count($lists) > 0){
 			?>
@@ -806,7 +806,7 @@ function categoryInsertBackPanel(){
 						<td  colspan="2" scope="col" style="width:4em;text-align:center">	<a class="delete"
 			href="<?php echo "?page=meenews/catandsuscribes.php&amp;cat=true&del=".$list->id; ?>#msgMembers"
 			onclick="return DelConfirmlist('<?php echo $list->categoria; ?>');"><?php echo $traducciones['textBorrar']; ?></a>
-						</td>					
+						</td>
 					</tr>
 				<?php
 				}
@@ -823,7 +823,7 @@ function categoryInsertBackPanel(){
 		<?php
 	}
 
-   
+
      function manageNewsletters(){
          global $traducciones;
         $lists = TvDesignNews::getSavedNewsletters();
@@ -843,7 +843,7 @@ function categoryInsertBackPanel(){
                jQuery( function($) {
                    $("#sender").css("display","block");
                });
-                 
+
               }
             }
 
@@ -884,8 +884,8 @@ function categoryInsertBackPanel(){
                               }
                            });
                     });
-             
-            
+
+
         }
         function closeSender(){
                jQuery( function($) {
@@ -932,7 +932,7 @@ function categoryInsertBackPanel(){
 						<td><?php echo $list->mode; ?></td>
                         <td><?php echo $list->send; ?></td>
 						<td><?php echo $list->sending; ?></td>
-						<td  colspan="2" scope="col" >	                        
+						<td  colspan="2" scope="col" >
                         <a style="color:#a9e000"
 			href="javascript:sendConfirm('<?php echo $list->id; ?>')" ><?php echo $traducciones['textEnviar']; ?> /</a>
             <a class="delete"
@@ -1008,7 +1008,7 @@ function categoryInsertBackPanel(){
         });
         </script>
 		<script type="text/javascript">
-      
+
                function showPosted(idpost){
                jQuery( function($) {
                    var url = <?php echo  "'".$urs."'" ?>;
@@ -1025,11 +1025,11 @@ function categoryInsertBackPanel(){
                                 $(".lista").append("<li id='"+idpost+"'><a href='"+urlblog+"?p="+idpost+"'>"+titulo+"</a></li>");
                                  $("#Inc"+idpost).html('<a sytle="color:#b4d338" href="javascript:QuitPosted('+idpost+')" ><?php echo $traducciones['textJaQuitar']; ?></a>');
                                 $("#finalTabla").append(datos);
-                                
+
                           }
                     });
                });
-               
+
                }
                function QuitPosted(idpost){
                        jQuery( function($) {
@@ -1053,7 +1053,7 @@ function categoryInsertBackPanel(){
                                       $(this).removeClass("hoverclass");
                                     });
                                    $(".nicEdit-main").html('')
-                                   
+
                          });
 
                }
@@ -1067,14 +1067,14 @@ function categoryInsertBackPanel(){
                                   $("#finalDesign").text(design);
                          });
 
-               }                
+               }
 		</script>
 
         <style type='text/css'>
             .tablero{width:100%}
 			.design{width:710px;height:500px;float:left;border:solid 1px #6c6c6c;overflow:scroll;overflow-x:hidden}
             .tools{width:250px;height:700px;float:right;overflow:scroll;overflow-x:hidden}
-            .customMesage{width:710px;height:200px;float:left;padding-top:20px;}      
+            .customMesage{width:710px;height:200px;float:left;padding-top:20px;}
 		</style>
         <div id="snewsMembers" class="wrap">
         <h2><?php _e('Titulo del newsletter:'); ?></h2>
@@ -1090,10 +1090,10 @@ function categoryInsertBackPanel(){
         <div class="tools">
 		<?php echo TvDesignNews::extractSelectedTables($categoselect); ?>
 		</div>
-       
+
 			<div class="design">
-			<?php echo TvDesignNews::generateTheme(); ?>                
-			</div>            
+			<?php echo TvDesignNews::generateTheme(); ?>
+			</div>
 			<div class="customMesage">
                 <textarea name="customMesage" id="customMesage" rows="6" cols="75"></textarea>
 				<div class="submit">
@@ -1105,13 +1105,13 @@ function categoryInsertBackPanel(){
 		<?php
     }
 
-  
+
 	function getPostsDesde($to="", $since=""){
 
 		global $table_prefix, $wpdb;
-	
+
 		$table = $table_prefix . "newsUsers";
-       
+
         $categories = get_option("TVnews_categories");
 		$results = array();
 		if($since != "")
@@ -1125,7 +1125,7 @@ function categoryInsertBackPanel(){
 		return $results;
 	}
 
-    
+
 	function generateRow($posts, $limit=0){
         global $traducciones;
         $wantImages = 	get_option("TVnews_wantImages");
@@ -1137,11 +1137,11 @@ function categoryInsertBackPanel(){
         $sizeLink =      get_option("TVnews_sizeLink")."px";
         $sizeSeparator =      get_option("TVnews_sizeSeparator")."px";
         $colorSeparator =      "#".get_option("TVnews_colorSeparator");
-        
+
 		$string = "";
 		$template = get_option("TVnews_template");
         $separator =      get_option("TVnews_separator");
-        
+
 		$postCount = 0;
 		$entrar = false;
 		$pasa = false;
@@ -1162,7 +1162,7 @@ function categoryInsertBackPanel(){
 
            if($wantImages == "true"){
                          $foto =  TvNewsletter::extractFoto($contenido);
-                         
+
                             $contenedor .="
                             <tr class='postadded$post->ID'>
                                 <td><h1 style='font-weight:bold;font-family: arial;clear:both; color:#$colorH1; font-size:$sizeH1; margin-bottom:8px;padding:0px'>$title</h1>$foto
@@ -1183,7 +1183,7 @@ function categoryInsertBackPanel(){
             }
 
 
-			
+
 			$postContent = str_replace("{EXCERPT}", $excerpt, $postContent);
 			$postContent = str_replace("{CONTENT}", $content, $postContent);
 			$postContent = str_replace("{AUTHOR}", $author, $postContent);
@@ -1204,7 +1204,7 @@ function categoryInsertBackPanel(){
 
 
 		$string = $contenedor;
-          
+
 		  return $string;
 	}
     function extractFoto($contenido){
@@ -1218,14 +1218,14 @@ function categoryInsertBackPanel(){
 		$foto = str_replace('href=',"",$foto);
 		$foto = str_replace('height=',"",$foto);
 		$foto = "<".$foto." style='margin-right:10px; margin-bottom:10px; float:left;border-color:#$colorH1;border:1px;border-style:solid;' width='$imagesWidth'>";
-      
+
     }else{
         $foto = "";
 
     }
 
       return $foto;
-      
+
     }
 	function echoAdvertiseMessage($string, $success=true, $anchor = "message"){
 		if($success){
@@ -1235,7 +1235,7 @@ function categoryInsertBackPanel(){
 	 	}
 	}
 
-   
+
 	function sendMailConformation($email, $confKey){
 		$from = get_option("TVnews_from");
 		$subject = "[Confirm] " .get_option("TVnews_subject");
@@ -1244,8 +1244,8 @@ function categoryInsertBackPanel(){
         $message = 	get_option("TVnews_messageConfirmationMail");
 
 		$confirmationURL = $url . "/wp-content/plugins/meenews/confirmation.php?add=$confKey";
-       
-       
+
+
         $search = "<--Titulo-->";
         $replace = $title;
         $message = str_replace($search, $replace, $message);
@@ -1255,15 +1255,15 @@ function categoryInsertBackPanel(){
         $search = "<--confirmationurl-->";
         $replace = $confirmationURL;
         $message = str_replace($search, $replace, $message);
-     
-        
-        
+
+
+
 		$message = wordwrap($message, 75, "\n");
 
 		return TvNewsletter::sendEmail($from,$email,"","",$subject,$message,"");
 	}
 
- 
+
     function sendEmail($from,$to,$cc,$bcc,$subject,$content,$tipo,$messagegmail=null){
 
 		     $mail = new PHPMailer();
@@ -1271,8 +1271,8 @@ function categoryInsertBackPanel(){
 			 $mail->FromName = $from;
 			 $mail->Subject = $subject;
 			 $mail->Host     = "localhost";
-             
-		
+
+
 			if ($tipo == "newsletter"){
                $mail->ContentType = "text/html";
                $mail->CharSet = "utf-8";
@@ -1281,16 +1281,16 @@ function categoryInsertBackPanel(){
 			   $mail->IsHTML(false);
                $mail->Body    = $content;
 			}
-		     
-  		   
+
+
 		     $mail->AddAddress($to, $to);
 			 if($mail->Send()){
 				@$value = true;
 		     } else {
 				@$value = false;
 			 }
-             
-           
+
+
 			$headers .= 'Cc: '.$cc ."\r\n";
 
 			$headers .= 'Bcc: '.$bcc ."\r\n";
@@ -1334,7 +1334,7 @@ function categoryInsertBackPanel(){
         }else{
             $members = TvUsersNews::getMeAllMembers("activo", $lista);
         }
-        
+
         $header = get_option("TVnews_header");
 		$footer = get_option("TVnews_footer");
 		$subject = get_option("TVnews_subject");
@@ -1345,7 +1345,7 @@ function categoryInsertBackPanel(){
         $sizeTexto =      get_option("TVnews_sizeText")."px";
         $subject = utf8_decode($subject);
         $sent = false;
-        
+
 		foreach ($members as $member){
 			$to  = $member->email;
             $novisibleLink =  get_bloginfo("wpurl") . "/wp-content/plugins/meenews/frontManage.php?Showing=ShowNewsletter&NewsId=".$newsletternum;
@@ -1359,9 +1359,9 @@ function categoryInsertBackPanel(){
             $content = str_replace($search, $replace, $content);
 
 
-            
+
 			if(!TvNewsletter::sendEmail($from,$to,"","",$subject,$content, "newsletter")){
-				return "mal enviado"; 
+				return "mal enviado";
 			}
 			$sent = true;
 		}
@@ -1369,13 +1369,13 @@ function categoryInsertBackPanel(){
 		if($sent){
 			$now = mktime();
 			$now ++;
-	
+
 			if($date != ""){
 				update_option("TVnews_last", $date);
 			}else{
 				update_option("TVnews_last", date("Y-m-d H:i:s", $now));
 			}
-	
+
 			update_option("TVnews_last_letter", date("Y-m-d H:i:s", $now));
 		}
 
@@ -1395,7 +1395,7 @@ function categoryInsertBackPanel(){
 	 	}
 	}
 
-   
+
 	function activateNewsletterPlugin($list = "1", $email = ""){
         global $traducciones;
 		$action = get_bloginfo("url");
@@ -1407,43 +1407,48 @@ function categoryInsertBackPanel(){
         $inputTextImage =      get_option("TVnews_inputTextImage");
         $inputTextcolorLink =      get_option("TVnews_inputTextcolorLink");
         $advertiseColor = get_option("TVnews_advertiseColor");
-        $firma[0]= "<a href='http://www.tierravirtual.com' alt='web design tierravirtual'>Newsletter</a>";
-        $firma[1]= "<a href='http://www.tierravirtual.com' alt='flash design tierravirtual'>Newsletter</a>";
-        $firma[2]= "<a href='http://www.tierravirtual.com' alt='web design tierravirtual'>Newsletter</a>";
-        $firma[3]= "<a href='http://www.tierravirtual.com' alt='flash website design tierravirtual'>Newsletter</a>";
-        $firma[4]= "<a href='http://www.tierravirtual.com' alt='dise�o web tierravirtual'>Newsletter</a>";
-        $firma[5]= "<a href='http://www.tierravirtual.com' alt='dise�o flash tierravirtual'>Newsletter</a>";
-        $firma[6]= "<a href='http://www.tierravirtual.com' alt='empresa dise�o web'>Newsletter</a>";
-        $firma[7]= "<a href='http://www.tierravirtual.com' alt='design website company'>Newsletter</a>";
+        $firma[0]= "<a href='http://www.tierravirtual.com' alt='web design tierravirtual'>Design by</a>";
+        $firma[1]= "<a href='http://www.tierravirtual.com' alt='flash design tierravirtual'>Design by</a>";
+        $firma[2]= "<a href='http://www.tierravirtual.com' alt='web design tierravirtual'>Design by</a>";
+        $firma[3]= "<a href='http://www.tierravirtual.com' alt='flash website design tierravirtual'>Design by</a>";
+        $firma[4]= "<a href='http://www.tierravirtual.com' alt='diseÃ±o web tierravirtual'>Design by</a>";
+        $firma[5]= "<a href='http://www.tierravirtual.com' alt='diseÃ±o flash tierravirtual'>Design by</a>";
+        $firma[6]= "<a href='http://www.tierravirtual.com' alt='empresa diseÃ±o web'>Design by</a>";
+        $firma[7]= "<a href='http://www.tierravirtual.com' alt='design website company'>Design by</a>";
         $aleatorio = rand(0,7);
         $vinculo = $firma[$aleatorio];
-?>     
+?>
     <style type='text/css'>
 
            #newsletterFormDiv input {color:#<?php echo $inputTextColor; ?>; background-color:#<?php echo $inputTextBackColor;  ?>;border:1px solid #<?php echo $inputTextBorderColor; ?>;padding:2px}
            #newsletterFormDiv .link {text-decoration:none; color:#<?php echo $inputTextcolorLink; ?>}
-           .advertise{color:#<?php echo $advertiseColor;?>;float:left; width:100%}
-           #firma {padding-top:15px;clear:both; float:left;}
-           #firma a{font-size:9px; }
+           .advertise{color:#<?php echo $advertiseColor;?>;float:left; width:100%;margin-top:4px;}
+           #etiqueta{position:absolute; background:url(<?php echo $newsletterURL."images/design_by.png"; ?>) no-repeat left; width:24px; height:21px; z-index:10; right:0px; top:3px}
+           #etiqueta a{ width:24px; height:21px; text-indent:-10000px;display:block}
     </style>
 
-    
+
     <script type="text/javascript" src="<?php echo $newsletterURL ?>js/jquery.js"></script>
     <script type="text/javascript" src="<?php echo $newsletterURL ?>js/tvjava.js"></script>
-        <form action=""  method="post">
+        <form action="" id="frontendform" name="frontendform" method="post" >
+
             <div class="rightAlign" id="newsletterFormDiv">
-                <input id="emailInput"
-                    style=" float:left; margin-top:2px; margin-right:5px;"
+
+             <div style="width: 156px; height:23px; position:relative;float:left;margin-right:6px">
+              <div id="etiqueta"><?php echo $vinculo; ?></div>
+             <input id="emailInput"
+                    style=" float:left; margin-top:2px; margin-right:5px;width: 151px;"
                     onblur="if(this.value==''){this.value='<?php echo $traducciones['textITMail']; ?>'}"
                     onfocus="if(this.value=='<?php echo $traducciones['textITMail']; ?>'){this.value=''}"
                     type="text" name="emailInput"
                     value="<?php if($email != "") echo $email; else echo $traducciones['textITMail']; ?>" />
+             </div>
                 <input type="hidden" id="newsletterHidden" name="newsletterHidden" value="true" />
                  <input type="hidden" id="loadingurl" name="loadingurl" value="<?php echo $urloading ?>" />
-                
+
                 <input type="hidden" id="urlAjax" name="urlAjax" value="<?php echo $newsletterURL ?>" />
-                
-                <?php 
+
+                <?php
                 if ($list == "all"){
                 echo TvUsersNews::getComboListSuscribes(false,true); ?>
                <?php   }else{ ?>
@@ -1451,7 +1456,6 @@ function categoryInsertBackPanel(){
                  <?php  } ?>
                             <a href="javascript:Inscribe()" style="float:left; margin-top:0px;"><img  src="<?php  echo plugins_url('meenews/customimages/'.$inputTextImage); ?>" ></a>
             </div>
-            <div id="firma"><?php echo $vinculo; ?></div>
         </form>
         <div id="resultado" class="advertise"> </div>
 <?php
@@ -1601,7 +1605,7 @@ function htmlConfPage($content){
 </html>
 <?php
 	}
-  
+
 }// fin de clase
 
 $Tvnewsletter = new TvNewsletter();

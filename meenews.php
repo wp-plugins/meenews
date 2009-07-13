@@ -1,15 +1,17 @@
 <?php
 require("Languages.php");
-include_once("class.phpmailer.php");
+if (!class_exists('PHPMailer')):
+    include_once("class.phpmailer.php");
+endif;
 include_once("class.coreTvnews.php");
 include_once("class.users.php");
 include_once("class.design.php");
 
 /*
  Plugin Name: MEE News
- Plugin URI: http://tierravirtual.com/
+ Plugin URI: http://www.wp-newsletter.com/
  Description: Gestor de usuarios, Gestor de newsletter, asi como de plantillas.
- Author: Daniel Perez, Tierra Virtual
+ Author: Daniel Perez, Tierra Virtual.com
  Version: 1.0
  */
 
