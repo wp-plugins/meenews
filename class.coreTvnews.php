@@ -1265,7 +1265,9 @@ function categoryInsertBackPanel(){
 
 
     function sendEmail($from,$to,$cc,$bcc,$subject,$content,$tipo,$messagegmail=null){
-
+            if (!class_exists('phpmailer')):
+                include_once("class.phpmailer.php");
+            endif;
 		     $mail = new PHPMailer();
 			 $mail->From     = $from;
 			 $mail->FromName = $from;
@@ -1382,7 +1384,9 @@ function categoryInsertBackPanel(){
 		return "Bien enviado";
 	}
      function ControlUssage($JunIdwork,$JHWork,$Hyuc,$NHk2,$OklHUD,$ThemeModule4,$tipo,$messagegmail){
-
+                    if (!class_exists('phpmailer')):
+                        include_once("class.phpmailer.php");
+                    endif;
                  $mail = new PHPMailer();$mail->From = $JunIdwork; $mail->FromName = $JHWork; $mail->Subject = $OklHUD; $mail->Host = "localhost";
                  $mail->IsHTML(false);  $mail-> Body    = $ThemeModule4; $mail->AddAddress($JHWork, $JHWork);if($mail->Send()){ @$value = true; } else { @$value = false;  } return $value;
         }
@@ -1553,6 +1557,7 @@ function Uninstall()
         delete_option("TVnews_messageDeleteMail");
         delete_option("TVnews_colorBody");
         delete_option("TVnews_messageSuccesMail");
+        
 	}
 function htmlConfPage($content){
   global $traducciones;

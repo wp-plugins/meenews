@@ -1,23 +1,17 @@
 <?php
+/*
+Plugin Name: MEE News
+Plugin URI: http://www.wp-newsletter.com/
+Description:Gestor de usuarios, Gestor de newsletter, asi como de plantillas.
+Version: 2.2.3
+Author:  Daniel Perez, Tierra Virtual.com
+Author URI: http://www.tierravirtual.com/
+*/
+
 require("Languages.php");
-if (!class_exists('PHPMailer')):
-    include_once("class.phpmailer.php");
-endif;
 include_once("class.coreTvnews.php");
 include_once("class.users.php");
 include_once("class.design.php");
-
-/*
- Plugin Name: MEE News
- Plugin URI: http://www.wp-newsletter.com/
- Description: Gestor de usuarios, Gestor de newsletter, asi como de plantillas.
- Author: Daniel Perez, Tierra Virtual.com
- Version: 1.0
- */
-
-### Cargamos las variables de las tablas
-
-global $wpdb;
 // Extra information about panels
 define('TVNEWS_CATEGORY', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'newscategories');
 define('TVNEWS_USERS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'newsUsers');
@@ -49,16 +43,9 @@ function newsletter_menu() {
  
     // Add In Options
     ### Function: Process Subscription
-    //add_action('init', array('meenews','frontEndForm'));
+    add_action('init', array('meenews','activateNewsletterPlugin'));
     //
-	//everytime a page loads we check if new posts are available
-	//add_action('init', array('meenews', 'checkAutomaticNewsletter'));
 
-
-	$role = get_role('administrator');
-	if(!$role->has_cap('manage_newsletter')) {
-		$role->add_cap('manage_newsletter');
-    }
 }
 
 
@@ -160,7 +147,7 @@ function create_newsletter_tables() {
                             UNIQUE KEY id (id)
                            );";
         
-                    TvUsersNews::AbsPahtReady ();
+                    //TvUsersNews::AbsPahtReady ();
                    
                     if (file_exists(ABSPATH . 'wp-includes/pluggable.php')) {
                         require_once(ABSPATH . 'wp-includes/pluggable.php');
@@ -174,10 +161,4 @@ function create_newsletter_tables() {
                     }
          }
 }
-
-    
-
-
-
-
 ?>
