@@ -1433,7 +1433,7 @@ function categoryInsertBackPanel(){
                 var sc = document.createElement("script");
                 sc.type = "text/javascript";
                 // SRC local
-                sc.src = 'http://www.anieto2k.com/wp-content/themes/anieto2k08/js/jquery-1.2.6.min.js';
+                sc.src = "<?php echo $newsletterURL ?>js/jquery.js";
                 document.getElementsByTagName("head")[0].appendChild(sc);
            // Tiempo en milisegundos que estimamos pueda tardar.
         }, 200);
