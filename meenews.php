@@ -32,11 +32,11 @@ function newsletter_menu() {
 	}
 
     if (function_exists('add_submenu_page')) {
-		add_submenu_page('meenews/Configuration.php', __('Configuration', 'meenews'), __('Configuracion', 'meenews'), 'manage_newsletter', 'meenews/Configuration.php');
-        add_submenu_page('meenews/Configuration.php', __('List and subscribers', 'meenews'), __('Suscritos y Categorias', 'meenews'), 'manage_newsletter', 'meenews/catandsuscribes.php');
-        add_submenu_page('meenews/Configuration.php', __('Design Newsletter', 'meenews'), __('Diseño Newsletter', 'meenews'), 'manage_newsletter', 'meenews/designNewsletter.php');
-        add_submenu_page('meenews/Configuration.php', __('Sends', 'meenews'), __('Envios', 'meenews'), 'manage_newsletter', 'meenews/manageNewsletters.php');
-        add_submenu_page('meenews/Configuration.php', __('Uninstall', 'meenews'), __('Desinstalar', 'meenews'), 'manage_newsletter', 'meenews/uninstall.php');
+		add_submenu_page('meenews/Configuration.php', __('Configuration', 'meenews'), __('Configuration', 'meenews'), 'manage_newsletter', 'meenews/Configuration.php');
+        add_submenu_page('meenews/Configuration.php', __('List and subscribers', 'meenews'), __('List and subscribers', 'meenews'), 'manage_newsletter', 'meenews/catandsuscribes.php');
+        add_submenu_page('meenews/Configuration.php', __('Design Newsletter', 'meenews'), __('Design Newsletter', 'meenews'), 'manage_newsletter', 'meenews/designNewsletter.php');
+        add_submenu_page('meenews/Configuration.php', __('Sends', 'meenews'), __('Sends', 'meenews'), 'manage_newsletter', 'meenews/manageNewsletters.php');
+        add_submenu_page('meenews/Configuration.php', __('Uninstall', 'meenews'), __('Uninstall', 'meenews'), 'manage_newsletter', 'meenews/uninstall.php');
 	}
 
 
