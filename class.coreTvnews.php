@@ -1426,9 +1426,23 @@ function categoryInsertBackPanel(){
            #etiqueta{position:absolute; background:url(<?php echo $newsletterURL."images/design_by.png"; ?>) no-repeat left; width:24px; height:21px; z-index:10; right:0px; top:3px}
            #etiqueta a{ width:24px; height:21px; text-indent:-10000px;display:block}
     </style>
+    <script type="text/javascript" >
+        var timer = setTimeout(function(){
 
+           if (typeof jQuery == 'function') return;
+                var sc = document.createElement("script");
+                sc.type = "text/javascript";
+                // SRC local
+                sc.src = 'http://www.anieto2k.com/wp-content/themes/anieto2k08/js/jquery-1.2.6.min.js';
+                document.getElementsByTagName("head")[0].appendChild(sc);
+           // Tiempo en milisegundos que estimamos pueda tardar.
+        }, 200);
 
-    <script type="text/javascript" src="<?php echo $newsletterURL ?>js/jquery.js"></script>
+        sc.onload = sc.onreadystatechange =  function(e){
+            clearTimeout(timer);
+        }
+
+    </script>
     <script type="text/javascript" src="<?php echo $newsletterURL ?>js/tvjava.js"></script>
         <form action="" id="frontendform" name="frontendform" method="post" >
 
