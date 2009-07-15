@@ -43,9 +43,12 @@ function newsletter_menu() {
  
     // Add In Options
     ### Function: Process Subscription
-    add_action('init', array('meenews','activateNewsletterPlugin'));
+    //add_action('init', array('meenews','activateNewsletterPlugin'));
     //
-
+    $role = get_role('administrator');
+	if(!$role->has_cap('manage_newsletter')) {
+		$role->add_cap('manage_newsletter');
+    }
 }
 
 
