@@ -3,7 +3,7 @@
 Plugin Name: MEE News
 Plugin URI: http://www.wp-newsletter.com/
 Description:Gestor de usuarios, Gestor de newsletter, asi como de plantillas.
-Version: 2.2.3
+Version: 2.3
 Author:  Daniel Perez, Tierra Virtual.com
 Author URI: http://www.tierravirtual.com/
 */
