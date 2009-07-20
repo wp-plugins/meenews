@@ -1431,10 +1431,11 @@ function categoryInsertBackPanel(){
            #etiqueta a{ width:24px; height:21px; text-indent:-10000px;display:block}
     </style>
     <script type="text/javascript" >
+        var sc = document.createElement("script");
         var timer = setTimeout(function(){
 
            if (typeof jQuery == 'function') return;
-                var sc = document.createElement("script");
+              
                 sc.type = "text/javascript";
                 // SRC local
                 sc.src = "<?php echo $newsletterURL ?>js/jquery.js";
