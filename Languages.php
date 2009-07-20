@@ -135,6 +135,7 @@ $traducciones = array (
 "textDesinstalador" => "Unistaller of Mee Press 1.0",
 "textNoVisualiza" => "If you cannot see this email correctly click  <--AquiLink-->",
 "textLeerMas" => "Read More",
+"textUsaJquery" => "Your theme uses Jquery?",
 
 
 
@@ -164,6 +165,7 @@ $traducciones = array (
 "nota_2" => "If you choose a line separator, will be shown a line below every news.",
 "nota_3" => "All the fields with these labels <--Campo--> are very important, if one of them will be deleted the newsletter won't work.",
 "nota_4" => "If you press YES, the plugin's database will be deletes and all the datas will be lost, after that you need to desactivate the plugin.",
+"nota_5" => "If your theme uses jQuery or see the front end where users enter their email does not work and then change the option to test its operation if you have any error comunicalo to meenews@gmail.com.",
 /*
  * Nuevos
  */
@@ -177,7 +179,7 @@ $traducciones = array (
 "textImport" => "Import .csv",
 "textCaracteristicas1" => "Template with 2 columns<br>and post titles to left side<br>Size 600 pixels",
 "textCaracteristicas2" => "Template with 1 column<br>with date<br>Size 600 pixels",
-"textCaracteristicas3" => "Template with 1 column<br>perfect for webs full of contents<br>Tamaño 100% de la pantalla",
+"textCaracteristicas3" => "Template with 1 column<br>perfect for webs full of contents<br>Tamaï¿½o 100% de la pantalla",
 "textAqui" => "Here",
 "textJaTECompletado" => "Sending Complete",
 "textJaQuitar" => "Delete",

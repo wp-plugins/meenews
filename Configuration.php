@@ -17,6 +17,7 @@ $limit = 0;
 if($_POST["send"]==$traducciones['Btn_AG']){
     
     update_option("TVnews_wantImages", $_POST["wantImages"]);
+    update_option("TVnews_withJquery", $_POST["jquerys"]);
 	update_option("TVnews_imagesWidth", $_POST["imagesWidth"]);
     update_option("TVnews_colorLink", substr($_POST["colorLink"],1));
     update_option("TVnews_colorText",substr($_POST["colorText"],1));

@@ -20,8 +20,7 @@ class TvNewsletter {
         $wantBackground =  get_option("TVnews_wantBackground");
         $colorBackground =      get_option("TVnews_colorBackground");
         $colorBody =      get_option("TVnews_colorBody");
-
-		$path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
+        		$path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
 
 
 		?>
@@ -42,6 +41,7 @@ class TvNewsletter {
 						<tr>
 							<td colspan="2"><hr /></td>
 						</tr>
+                        
 						<tr>
 							<th style="text-align:left;vertical-align:top;" scope="row"><label style="vertical-align:top;" for="letterFrom"><?php echo $traducciones['textde']; ?></label></th>
 							<td>
@@ -165,7 +165,7 @@ class TvNewsletter {
         $sizeTexto =      get_option("TVnews_sizeText");
         $sizeLink =      get_option("TVnews_sizeLink");
         $sizeSeparator =      get_option("TVnews_sizeSeparator");
-
+        $withJquery = get_option("TVnews_withJquery");
 		?>
         <script type="text/javascript" src='<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/js/sevencolorpicker.js'></script>
 		<script type="text/javascript">
@@ -181,6 +181,22 @@ class TvNewsletter {
 			<form id="settings" name="settings" action="?page=meenews/Configuration.php&amp;mode=general" method="post">
 				<table class="widefat">
 					<tbody>
+                    <tr>
+							<th scope="row" style="width:6em;text-align:left;vertical-align:top;"><?php echo $traducciones['textUsaJquery']; ?></th>
+							<td>
+								<input <?php if($withJquery=="true") echo "CHECKED" ?> type="radio" id="jqueryTrue"
+				name="jquerys" value="true" onClick="toggleState(true, 'count');" /><label for="period_0"><?php echo $traducciones['textSi']; ?></label><br />
+								<input <?php if($withJquery=="false") echo "CHECKED" ?> type="radio" id="jqueryFalse"
+				name="jquerys" value="false" onClick="toggleState(true, 'count');" /><label for="period_1"><?php echo $traducciones['textNo']; ?></label><br />
+
+							</td>
+						</tr>
+                        <tr>
+							<td colspan="2">
+                                <b><?php echo $traducciones['textNota']; ?></b><br />
+								<?php echo $traducciones['nota_5']; ?>
+							</td>
+						</tr>
 						<tr>
 							<th scope="row" style="width:6em;text-align:left;vertical-align:top;"><?php echo $traducciones['textMostrar']; ?></th>
 							<td>
@@ -1411,6 +1427,7 @@ function categoryInsertBackPanel(){
         $inputTextImage =      get_option("TVnews_inputTextImage");
         $inputTextcolorLink =      get_option("TVnews_inputTextcolorLink");
         $advertiseColor = get_option("TVnews_advertiseColor");
+        $withJquery = get_option("TVnews_withJquery");
         $firma[0]= "<a href='http://www.tierravirtual.com' alt='web design tierravirtual'>Design by</a>";
         $firma[1]= "<a href='http://www.tierravirtual.com' alt='flash design tierravirtual'>Design by</a>";
         $firma[2]= "<a href='http://www.tierravirtual.com' alt='web design tierravirtual'>Design by</a>";
@@ -1421,6 +1438,9 @@ function categoryInsertBackPanel(){
         $firma[7]= "<a href='http://www.tierravirtual.com' alt='design website company'>Design by</a>";
         $aleatorio = rand(0,7);
         $vinculo = $firma[$aleatorio];
+        if ($withJquery=="false"){?>
+            <script type="text/javascript" src="<?php echo $newsletterURL ?>js/jquery.js"></script>
+       <?php }
 ?>
     <style type='text/css'>
 
@@ -1431,21 +1451,10 @@ function categoryInsertBackPanel(){
            #etiqueta a{ width:24px; height:21px; text-indent:-10000px;display:block}
     </style>
     <script type="text/javascript" >
-        var sc = document.createElement("script");
-        var timer = setTimeout(function(){
-
-           if (typeof jQuery == 'function') return;
-              
-                sc.type = "text/javascript";
-                // SRC local
-                sc.src = "<?php echo $newsletterURL ?>js/jquery.js";
-                document.getElementsByTagName("head")[0].appendChild(sc);
-           // Tiempo en milisegundos que estimamos pueda tardar.
-        }, 200);
-
-        sc.onload = sc.onreadystatechange =  function(e){
-            clearTimeout(timer);
-        }
+      if (typeof jQuery == 'function'){
+      }else{
+          alert("Tu tema no usa jquery activa la opcion dentro del panel de control en configuariones");
+      }
 
     </script>
     <script type="text/javascript" src="<?php echo $newsletterURL ?>js/tvjava.js"></script>
@@ -1558,6 +1567,7 @@ function Uninstall()
         delete_option("TVnews_messageDeleteMail");
         delete_option("TVnews_colorBody");
         delete_option("TVnews_messageSuccesMail");
+        delete_option("TVnews_withJquery");
         
 	}
 function htmlConfPage($content){
