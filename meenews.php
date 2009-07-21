@@ -3,7 +3,7 @@
 Plugin Name: MEE News
 Plugin URI: http://www.wp-newsletter.com/
 Description:Gestor de usuarios, Gestor de newsletter, asi como de plantillas.
-Version: 2.4
+Version: 2.5
 Author:  Daniel Perez, Tierra Virtual.com
 Author URI: http://www.tierravirtual.com/
 */
@@ -92,6 +92,8 @@ function create_newsletter_tables() {
     add_option("TVnews_advertiseColor", "666");
     add_option("TVnews_inputTextImage", "boton.jpg");
     add_option("TVnews_withJquery", "false");
+    add_option("TVnews_frontEndTitle", "Newsletter");
+    add_option("TVnews_listToFrontEnd", "1");
     add_option("TVnews_messageHeaderNewsMail", "Hello, this newsletter contains information about my site for any query please send an email to ejemplo@mail.com");
     add_option("TVnews_messageConfirmationMail", "Has received a subscription request to Newsletter <--Titulo--> at: \n <--url--> \n 
                                                    \n order to complete your subscription must click on the following link: \n <--confirmationurl--> \ n 

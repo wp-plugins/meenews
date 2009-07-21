@@ -136,6 +136,7 @@ $traducciones = array (
 "textNoVisualiza" => "If you cannot see this email correctly click  <--AquiLink-->",
 "textLeerMas" => "Read More",
 "textUsaJquery" => "Your theme uses Jquery?",
+"textListInscribe" => "Select List Inscribe newsletter",
 
 
 

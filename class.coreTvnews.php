@@ -1568,6 +1568,8 @@ function Uninstall()
         delete_option("TVnews_colorBody");
         delete_option("TVnews_messageSuccesMail");
         delete_option("TVnews_withJquery");
+        delete_option("TVnews_frontEndTitle");
+        delete_option("TVnews_listToFrontEnd");
         
 	}
 function htmlConfPage($content){

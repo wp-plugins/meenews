@@ -19,6 +19,8 @@ Create, customize and send your newsletter in a second.
 With this plugin you will be able to send newsletter's with diferent themes and customizable colors, images, headers, text size's and colors , etc. Create your lists, manage your users, postings to a mailing list specifically targeted. Enter the post you want with or without a photo, select it yourself. 
 Wp-Newsletter is a free wordpress plugin, these are the characteristics:
 
+- Widget for simple instalation.
+
 - Simple installation.
 
 - Completely Customizable, with the coolest design.
@@ -31,11 +33,11 @@ Wp-Newsletter is a free wordpress plugin, these are the characteristics:
 
 - Without programming knowledge.
 
-- Available in 2 languages (English - Espa–ol)
+- Available in 2 languages (English - Espaï¿½ol)
 
 - With 2 different themes ready to use.
 
-For commercial use, there are 2 plugins available: ÒCommercialÓ for just one project, and ÒCommercial PROÓ for all the projects that you need! Please visit http://wwww.wp-newsletter.com
+For commercial use, there are 2 plugins available: ï¿½Commercialï¿½ for just one project, and ï¿½Commercial PROï¿½ for all the projects that you need! Please visit http://wwww.wp-newsletter.com
 
 System recommandations:
 WordPress 2.7 or higher.
@@ -47,7 +49,7 @@ MySQL version 4.1 or higher.
 
 To install the newsletter plugin:
 
-DonÕt forget to read how to install, in the documentation section. http://www.wp-newsletter.com
+Donï¿½t forget to read how to install, in the documentation section. http://www.wp-newsletter.com
 
 1. Upload `wp_TVnewsletter` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress ( activate MeeNews Plugin ).
