@@ -217,7 +217,7 @@ $traducciones = array (
 "textInputWidth" => "Input Width",
 "textInputClass" => "Form Class",
 "textInputMessage" => "Message Input:",
-"textStats" => "Compra ahora la version comercial y disfrutaras de estas estadisticas",
+"textStats" => "Buy now and enjoy the commercial version of these statistics",
 "textCodificate" => "What codification do you want?:",
 "Tit_12" => "Select Newsletter for stats"
 );
