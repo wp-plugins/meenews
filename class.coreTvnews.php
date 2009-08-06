@@ -1443,6 +1443,7 @@ function categoryInsertBackPanel(){
         $inputTextImage =      get_option("TVnews_inputTextImage");
         $inputTextcolorLink =      get_option("TVnews_inputTextcolorLink");
         $advertiseColor = get_option("TVnews_advertiseColor");
+        $withJquery = get_option("TVnews_withJquery");
         $firma[0]= "<a href='http://www.tierravirtual.com' alt='web design tierravirtual'>Design by</a>";
         $firma[1]= "<a href='http://www.tierravirtual.com' alt='flash design tierravirtual'>Design by</a>";
         $firma[2]= "<a href='http://www.tierravirtual.com' alt='web design tierravirtual'>Design by</a>";
