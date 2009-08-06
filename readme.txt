@@ -19,6 +19,8 @@ Create, customize and send your newsletter in a second.
 With this plugin you will be able to send newsletter's with diferent themes and customizable colors, images, headers, text size's and colors , etc. Create your lists, manage your users, postings to a mailing list specifically targeted. Enter the post you want with or without a photo, select it yourself. 
 Wp-Newsletter is a free wordpress plugin, these are the characteristics:
 
+- Complet Statistics.
+
 - Widget for simple instalation.
 
 - Simple installation.
@@ -84,12 +86,13 @@ Answer to foo bar dilemma.
 
 == Screenshots ==
 
-1. Modify newsletter header, and title and background color 
+1. Statistics newsletter
 2. Modify Front End form subscribers 
 3. Modify colors and sizes, and select or not images
 4. Manage List 
 5. Example newsletter 
-6. Other example 
+6. Other example
+7. Modify newsletter header, and title and background color
 == Changelog ==
 
 Leer **[Readme > Changelog](http://www.wp-newsletter.com/)**.

@@ -8,7 +8,8 @@ $succcessMsg = true;
 $membersUpdate = false;
 $limit = 0;
 global $traducciones;
-//si modificamos la configuracion general
+
+
 if($_POST["send"]== $traducciones['Btn_AG'] ){
 
     update_option("TVnews_wantImages", $_POST["wantImages"]);
@@ -21,7 +22,7 @@ if($_POST["send"]== $traducciones['Btn_AG'] ){
 }
 
 
-//si modificamos la configuracion general
+
 if($_POST["send"]== $traducciones['Btn_EN'] ){
     $nombre = $_POST["nombre"];
     $email = $_POST["email"];
@@ -60,7 +61,7 @@ if(is_numeric($delete)){
   }
   TvNewsletter::echoAdvertiseMessage($message,$succcessMsg);
 }
-//prints the HTML to configure the newsletter
+
 if(is_numeric($actv)){
  $membersUpdate = true;
 	if(TvUsersNews::passToActivate($actv)){
@@ -119,7 +120,7 @@ TvNewsletter::echoAdvertiseMessage($message,$result);
 <script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/js/ui.tabs.js"></script>
 <link href="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/css/ui.tabs.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
-// Tabs
+
 jQuery(document).ready(function() {
 	jQuery('#tvtabs > ul').tabs();
 });
@@ -155,4 +156,4 @@ TvNewsletter::ImportSusbcribers();
 </div>
 
 
-</div> <!--/ tvtabs --
+</div> 

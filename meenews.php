@@ -3,19 +3,24 @@
 Plugin Name: MEE News
 Plugin URI: http://www.wp-newsletter.com/
 Description:Gestor de usuarios, Gestor de newsletter, asi como de plantillas.
-Version: 2.5
+Version: 2.7.1
 Author:  Daniel Perez, Tierra Virtual.com
 Author URI: http://www.tierravirtual.com/
 */
-
 require("Languages.php");
 include_once("class.coreTvnews.php");
 include_once("class.users.php");
 include_once("class.design.php");
-// Extra information about panels
+include_once("class.stats.php");
+
 define('TVNEWS_CATEGORY', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'newscategories');
-define('TVNEWS_USERS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'newsUsers');
+define('TVNEWS_USERS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'newsusers');
 define('TVNEWS_NEWSLETERS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'savednewsletters');
+define('TVNEWS_STATS_NEWS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'newsstats');
+define('TVNEWS_CLICKS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'newstatsclick');
+define('TVNEWS_ERASERS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'newstatserasers');
+
+
 if (!function_exists('add_action')) {
 	$wp_root = '../../..';
 	if (file_exists($wp_root.'/wp-load.php')) {
@@ -24,7 +29,8 @@ if (!function_exists('add_action')) {
 		require_once($wp_root.'/wp-config.php');
 	}
 }
-### Function: Iniciamos el generador del menu del back end
+register_deactivation_hook(__FILE__, 'Uninstall'); 
+
 add_action('admin_menu', 'newsletter_menu');
 function newsletter_menu() {
 	if (function_exists('add_menu_page')) {
@@ -36,24 +42,20 @@ function newsletter_menu() {
         add_submenu_page('meenews/Configuration.php', __('List and subscribers', 'meenews'), __('List and subscribers', 'meenews'), 'manage_newsletter', 'meenews/catandsuscribes.php');
         add_submenu_page('meenews/Configuration.php', __('Design Newsletter', 'meenews'), __('Design Newsletter', 'meenews'), 'manage_newsletter', 'meenews/designNewsletter.php');
         add_submenu_page('meenews/Configuration.php', __('Sends', 'meenews'), __('Sends', 'meenews'), 'manage_newsletter', 'meenews/manageNewsletters.php');
+        add_submenu_page('meenews/Configuration.php', __('Statistics', 'meenews'), __('Statistics', 'meenews'), 'manage_newsletter', 'meenews/statistics.php');
         add_submenu_page('meenews/Configuration.php', __('Uninstall', 'meenews'), __('Uninstall', 'meenews'), 'manage_newsletter', 'meenews/uninstall.php');
 	}
 
-
- 
-    // Add In Options
-    ### Function: Process Subscription
-    //add_action('init', array('meenews','activateNewsletterPlugin'));
-    //
     $role = get_role('administrator');
 	if(!$role->has_cap('manage_newsletter')) {
 		$role->add_cap('manage_newsletter');
     }
+
 }
 
 
-### Function: Crea las tablas necesarias
- add_action('admin_menu', 'create_newsletter_tables');
+
+add_action('admin_menu', 'create_newsletter_tables');
 function create_newsletter_tables() {
 
 	add_option("TVnews_last","1970-01-01 00:00:00");
@@ -94,16 +96,22 @@ function create_newsletter_tables() {
     add_option("TVnews_withJquery", "false");
     add_option("TVnews_frontEndTitle", "Newsletter");
     add_option("TVnews_listToFrontEnd", "1");
+    add_option("TVnews_inputWidth", "150");
+    add_option("TVnews_inputClass", "");
+    add_option("TVnews_inputMessage", "Insert your mail");
+    add_option("TVnews_nOPnum", "xxxxxx");
+    add_option("TVnews_codificate", "iso8859-1");
+	add_option("TVnews_version", "2.7.1");
     add_option("TVnews_messageHeaderNewsMail", "Hello, this newsletter contains information about my site for any query please send an email to ejemplo@mail.com");
-    add_option("TVnews_messageConfirmationMail", "Has received a subscription request to Newsletter <--Titulo--> at: \n <--url--> \n 
-                                                   \n order to complete your subscription must click on the following link: \n <--confirmationurl--> \ n 
+    add_option("TVnews_messageConfirmationMail", "Has received a subscription request to Newsletter {Titulo} at: \n {url} \n
+                                                   \n order to complete your subscription must click on the following link: \n {confirmationurl} \ n
                                                    \n If you do not wish to receive this NewsLetter, apologize and please ignore this email. \n");
 
-    add_option("TVnews_messageDeleteMail", " If you no longer wish to receive this newsletter please click <a href ='<--confirmationurl--> '> Here </ a> 
+    add_option("TVnews_messageDeleteMail", " If you no longer wish to receive this newsletter please click <a href ='{confirmationurl} '> Here </ a>
                                               and automatically unsubscribe. \n");
-    add_option("TVnews_messageSuccesMail", "It has been successfully subscribed to the newsletter <--Titulo-->  at: \n <--url--> \n 
+    add_option("TVnews_messageSuccesMail", "It has been successfully subscribed to the newsletter {Titulo}  at: \n {url} \n
                                                    If you do not want to receive this newsletter, use the link to delete your subscription: \n 
-                                                    <--confirmationurl-->\n");
+                                                    {confirmationurl}\n");
 
     global $wpdb;
     if(@is_file(ABSPATH.'/wp-admin/upgrade-functions.php')) {
@@ -122,11 +130,14 @@ function create_newsletter_tables() {
 			$charset_collate .= " COLLATE $wpdb->collate";
 		}
 	}
-        $table = TVNEWS_USERS;
+        $table = TVNEWS_NEWSLETERS;
         
 		if (!TvNewsletter::tableExists($table)) {
          
-          
+         			$tabla = $wpdb->prefix . 'newsUsers';
+                    if (TvNewsletter::tableExists($table)) {
+                       $sql = "DROP TABLE $tabla"; $wpdb->query($sql);
+                    }
                     $sql[] = "CREATE TABLE " .TVNEWS_USERS . " (
                             id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
                             id_categoria bigint(20) UNSIGNED NOT NULL,
@@ -153,6 +164,30 @@ function create_newsletter_tables() {
                             UNIQUE KEY id (id)
                            );";
         
+                    $sql[] = "CREATE TABLE " . TVNEWS_STATS_NEWS . " (
+                            id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+                            totsend bigint(10) NOT NULL,
+                            totalview bigint(10) NOT NULL,
+                            UNIQUE KEY id (id)
+                           );";
+                    $sql[] = "CREATE TABLE " . TVNEWS_CLICKS . " (
+                            id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+                            idpost bigint(10) NOT NULL,
+                            idnews bigint(10) NOT NULL,
+                            iduser bigint(10) NOT NULL,
+                            date date NOT NULL,
+                            time time NOT NULL,
+                            UNIQUE KEY id (id)
+                           );";
+
+                    $sql[] = "CREATE TABLE " . TVNEWS_ERASERS . " (
+                            id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+                            iduser bigint(10) NOT NULL,
+                            idnews bigint(10) NOT NULL,
+                            date datetime NOT NULL,
+                            UNIQUE KEY id (id)
+                           );";
+
                     TvUsersNews::AbsPahtReady ();
                    
                     if (file_exists(ABSPATH . 'wp-includes/pluggable.php')) {
@@ -167,4 +202,63 @@ function create_newsletter_tables() {
                     }
          }
 }
+function Uninstall()
+	{
+ 		global $wpdb;
+
+		$sql = "DROP TABLE " . TVNEWS_CATEGORY; $wpdb->query($sql);
+        $sql = "DROP TABLE " . TVNEWS_USERS; $wpdb->query($sql);
+		$sql = "DROP TABLE " . TVNEWS_NEWSLETERS; $wpdb->query($sql);
+        $sql = "DROP TABLE " . TVNEWS_STATS_NEWS; $wpdb->query($sql);
+        $sql = "DROP TABLE " . TVNEWS_CLICKS; $wpdb->query($sql);
+		$sql = "DROP TABLE " . TVNEWS_ERASERS; $wpdb->query($sql);
+
+
+		delete_option("TVnews_count");
+        delete_option("TVnews_categories");
+        delete_option("TVnews_headImage");
+        delete_option("TVnews_period");
+        delete_option("TVnewss_template");
+        delete_option("TVnews_last");
+        delete_option("TVnews_last_letter");
+        delete_option("TVnews_header");
+        delete_option("TVnews_footer");
+        delete_option("TVnews_subject");
+        delete_option("TVnews_from");
+        delete_option("TVnews_wantImages");
+        delete_option("TVnews_imagesWidth");
+        delete_option("TVnews_colorH1");
+        delete_option("TVnews_colorText");
+        delete_option("TVnews_colorLink");
+        delete_option("TVnews_sizeH1");
+        delete_option("TVnews_sizeText");
+        delete_option("TVnews_sizeLink");
+        delete_option("TVnews_colorSeparator");
+        delete_option("TVnews_separator");
+        delete_option("TVnews_sizeSeparator");
+        delete_option("TVnews_wantBackground");
+        delete_option("TVnews_colorBackground");
+        delete_option("TVnews_backgroundImage");
+        delete_option("TVnews_styleSelected");
+        delete_option("TVnews_inputTextColor");
+        delete_option("TVnews_inputTextBackColor");
+        delete_option("TVnews_inputTextBorderColor");
+        delete_option("TVnews_inputTextcolorLink");
+        delete_option("TVnews_advertiseColor");
+        delete_option("TVnews_inputTextImage");
+        delete_option("TVnews_messageHeaderNewsMail");
+        delete_option("TVnews_messageConfirmationMail");
+        delete_option("TVnews_messageDeleteMail");
+        delete_option("TVnews_colorBody");
+        delete_option("TVnews_messageSuccesMail");
+        delete_option("TVnews_withJquery");
+        delete_option("TVnews_frontEndTitle");
+        delete_option("TVnews_listToFrontEnd");
+        delete_option("TVnews_inputWidth");
+        delete_option("TVnews_nOPnum");
+        delete_option("TVnews_inputClass");
+        delete_option("TVnews_inputMessage");
+        delete_option("TVnews_codificate");
+        
+	}
 ?>

@@ -14,20 +14,20 @@ if($_POST["show"]=="Users"){
     
 }else
 
-if($_POST["show"]=="Envia"){
 
+if($_POST["show"]=="Envia"){
+    global $traducciones;
     require_once('../../../wp-config.php');
     include_once("class.coreTvnews.php");
     include_once("class.users.php");
     include_once("class.design.php");
-
-    $idNewsletter = $_POST["newsletter"];
+     $idNewsletter = $_POST["newsletter"];
     $desde = $_POST["desde"];
     $lista = $_POST["lista"];
     if($lista == "")$lista = null;
     $newsletter = TvDesignNews::extractNewsletter($idNewsletter);
     $mensaje = TvNewsletter::sendNewsletter($newsletter,"",$desde, $lista,$idNewsletter);
-    echo $mensaje;
+    echo "<br> ".$traducciones['textSendOk'].$mensaje['bien']."<br> ".$traducciones['textSendWrong'].$mensaje['mal'];
     die();
 }else
 
@@ -47,7 +47,6 @@ if($_POST["show"]=="Previsualiza"){
 
 }else{
     $del = $_REQUEST["del"];
-    //si modificamos la configuracion general
     if(is_numeric($del)){
         TvDesignNews::removeNewsletter($del);
         

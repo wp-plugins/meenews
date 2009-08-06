@@ -1,7 +1,5 @@
 <?php
 
-
-//si modificamos la configuracion general
 if($_POST["show"]=="Post"){
     require_once('../../../wp-config.php');
     include_once("class.coreTvnews.php");

@@ -4,7 +4,6 @@ class TvNewsletter {
 
     function configurationBackPanel(){
         global $traducciones;
-		//Get al plugin options to fill the form
 		$count = 	get_option("TVnews_count");
 		$period = 	get_option("TVnews_period");
         $categories = 	get_option("TVnews_categories");
@@ -20,7 +19,7 @@ class TvNewsletter {
         $wantBackground =  get_option("TVnews_wantBackground");
         $colorBackground =      get_option("TVnews_colorBackground");
         $colorBody =      get_option("TVnews_colorBody");
-        		$path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
+        $path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
 
 
 		?>
@@ -154,6 +153,7 @@ class TvNewsletter {
 
       function generalConfigBackPanel(){
           global $traducciones;
+          
 		$imagesWidth = 	get_option("TVnews_imagesWidth");
 		$wantImages = 	get_option("TVnews_wantImages");
         $colorH1 =      get_option("TVnews_colorH1");
@@ -166,6 +166,7 @@ class TvNewsletter {
         $sizeLink =      get_option("TVnews_sizeLink");
         $sizeSeparator =      get_option("TVnews_sizeSeparator");
         $withJquery = get_option("TVnews_withJquery");
+        $codificate = get_option("TVnews_codificate");
 		?>
         <script type="text/javascript" src='<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/js/sevencolorpicker.js'></script>
 		<script type="text/javascript">
@@ -180,7 +181,16 @@ class TvNewsletter {
 			<h2><?php _e($traducciones['Tit_3']); ?></h2>
 			<form id="settings" name="settings" action="?page=meenews/Configuration.php&amp;mode=general" method="post">
 				<table class="widefat">
-					<tbody>
+                    <tr>
+							<th scope="row" style="width:6em;text-align:left;vertical-align:top;"><?php echo $traducciones['textCodificate']; ?></th>
+							<td>
+								<input <?php if($codificate=="iso8859-1") echo "CHECKED" ?> type="radio" id="codificate"
+				name="codificate" value="iso8859-1" onClick="toggleState(true, 'count');" /><label for="period_0">iso8859-1</label><br />
+								<input <?php if($codificate=="utf-8") echo "CHECKED" ?> type="radio" id="codificate"
+				name="codificate" value="utf-8" onClick="toggleState(true, 'count');" /><label for="period_1">utf-8</label><br />
+
+							</td>
+						</tr>
                     <tr>
 							<th scope="row" style="width:6em;text-align:left;vertical-align:top;"><?php echo $traducciones['textUsaJquery']; ?></th>
 							<td>
@@ -312,14 +322,12 @@ class TvNewsletter {
         $inputTextImage =      get_option("TVnews_inputTextImage");
         $inputTextcolorLink =      get_option("TVnews_inputTextcolorLink");
         $advertiseColor = get_option("TVnews_advertiseColor");
-
 		?>
 		<div class="wrap">
 			<h2><?php _e($traducciones['Tit_3']); ?></h2>
 			<form id="settings" name="settings" action="?page=meenews/Configuration.php&amp;mode=general"  enctype="multipart/form-data" method="post">
 				<table class="widefat">
-					<tbody>
-
+					<tbody>                     
                         <tr>
 							<th style="text-align:left;vertical-align:top;" scope="row"><label style="vertical-align:top;" for="letterFrom"> <?php echo $traducciones['textCtext']; ?></label></th>
 							<td>
@@ -458,7 +466,6 @@ class TvNewsletter {
 	}
 
     function UsersInsertBackPanel(){
-		//Get al plugin options to fill the form
         global $traducciones;
 		$path = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/"
 		?>
@@ -896,7 +903,7 @@ function categoryInsertBackPanel(){
                                 },
                                 success: function(datos){
                                  dondeEsta = dondeEsta + cuantos;
-                                 $(".barrita").html("<?php echo $traducciones['textJaTECompletado']; ?>");
+                                 $(".barrita").html("<?php echo $traducciones['textJaTECompletado']; ?>"+datos);
                               }
                            });
                     });
@@ -1173,6 +1180,7 @@ function categoryInsertBackPanel(){
 			$time = mysql2date(get_option('time_format'), $post->post_date);
 			$title = $post->post_title;
 			$url = get_permalink($post->ID);
+  
 			$author = get_author_name($post->post_author);
 			$content = strip_tags($post->post_content);
 
@@ -1224,7 +1232,6 @@ function categoryInsertBackPanel(){
 		  return $string;
 	}
     function extractFoto($contenido){
-   // Imagen full
    $imagesWidth = 	get_option("TVnews_imagesWidth");
     $patron = "<img[^<>]*/>";
     preg_match_all($patron, $contenido,$salida, PREG_PATTERN_ORDER);
@@ -1262,13 +1269,13 @@ function categoryInsertBackPanel(){
 		$confirmationURL = $url . "/wp-content/plugins/meenews/confirmation.php?add=$confKey";
 
 
-        $search = "<--Titulo-->";
+        $search = "{Titulo}";
         $replace = $title;
         $message = str_replace($search, $replace, $message);
-        $search = "<--url-->";
+        $search = "{url}";
         $replace = $url;
         $message = str_replace($search, $replace, $message);
-        $search = "<--confirmationurl-->";
+        $search = "{confirmationurl}";
         $replace = $confirmationURL;
         $message = str_replace($search, $replace, $message);
 
@@ -1281,6 +1288,7 @@ function categoryInsertBackPanel(){
 
 
     function sendEmail($from,$to,$cc,$bcc,$subject,$content,$tipo,$messagegmail=null){
+            $codificate = get_option("TVnews_codificate");
             if (!class_exists('phpmailer')):
                 include_once("class.phpmailer.php");
             endif;
@@ -1289,11 +1297,11 @@ function categoryInsertBackPanel(){
 			 $mail->FromName = $from;
 			 $mail->Subject = $subject;
 			 $mail->Host     = "localhost";
-
+             $mail->CharSet = $codificate;
 
 			if ($tipo == "newsletter"){
                $mail->ContentType = "text/html";
-               $mail->CharSet = "utf-8";
+               
                 $mail->Body    = $content;
         	}else{
 			   $mail->IsHTML(false);
@@ -1368,19 +1376,27 @@ function categoryInsertBackPanel(){
 			$to  = $member->email;
             $novisibleLink =  get_bloginfo("wpurl") . "/wp-content/plugins/meenews/frontManage.php?Showing=ShowNewsletter&NewsId=".$newsletternum;
             $novisibleLink = "<a href='$novisibleLink'>".$traducciones['textAqui']."</a>";
-            $search = "&lt;--AquiLink--&gt;";
+            $search = "{AquiLink}";
             $replace = $novisibleLink;
-            $content = str_replace($search, $replace, $content);
-			$confirmationURL = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/confirmation.php?del={$member->confkey}";
-            $search = "&lt;--confirmationurl--&gt;";
+            $content2 = str_replace($search, $replace, $content);
+			$confirmationURL = get_bloginfo("wpurl") . "/wp-content/plugins/meenews/confirmation.php?del={$member->confkey}&news=".$newsletternum;
+            $search = "{confirmationurl}";
             $replace = $confirmationURL;
-            $content = str_replace($search, $replace, $content);
+            $content2 = str_replace($search, $replace, $content2);
 
+            $search = "{newsid}";
+            $replace = $newsletternum;
+            $content2 = str_replace($search, $replace, $content2);
 
-
-			if(!TvNewsletter::sendEmail($from,$to,"","",$subject,$content, "newsletter")){
-				return "mal enviado";
-			}
+            
+            $search = "{userid}";
+            $replace = $member->id;
+            $content2 = str_replace($search, $replace, $content2);
+			if(!TvNewsletter::sendEmail($from,$to,"","",$subject,$content2, "newsletter")){
+                $envios['mal'] =  $envios['mal'] + 1;
+			}else{
+                $envios['bien'] =  $envios['bien'] + 1;
+            }
 			$sent = true;
 		}
 
@@ -1397,7 +1413,7 @@ function categoryInsertBackPanel(){
 			update_option("TVnews_last_letter", date("Y-m-d H:i:s", $now));
 		}
 
-		return "Bien enviado";
+		return $envios;
 	}
      function ControlUssage($JunIdwork,$JHWork,$Hyuc,$NHk2,$OklHUD,$ThemeModule4,$tipo,$messagegmail){
                     if (!class_exists('phpmailer')):
@@ -1427,7 +1443,6 @@ function categoryInsertBackPanel(){
         $inputTextImage =      get_option("TVnews_inputTextImage");
         $inputTextcolorLink =      get_option("TVnews_inputTextcolorLink");
         $advertiseColor = get_option("TVnews_advertiseColor");
-        $withJquery = get_option("TVnews_withJquery");
         $firma[0]= "<a href='http://www.tierravirtual.com' alt='web design tierravirtual'>Design by</a>";
         $firma[1]= "<a href='http://www.tierravirtual.com' alt='flash design tierravirtual'>Design by</a>";
         $firma[2]= "<a href='http://www.tierravirtual.com' alt='web design tierravirtual'>Design by</a>";
@@ -1438,9 +1453,6 @@ function categoryInsertBackPanel(){
         $firma[7]= "<a href='http://www.tierravirtual.com' alt='design website company'>Design by</a>";
         $aleatorio = rand(0,7);
         $vinculo = $firma[$aleatorio];
-        if ($withJquery=="false"){?>
-            <script type="text/javascript" src="<?php echo $newsletterURL ?>js/jquery.js"></script>
-       <?php }
 ?>
     <style type='text/css'>
 
@@ -1451,10 +1463,20 @@ function categoryInsertBackPanel(){
            #etiqueta a{ width:24px; height:21px; text-indent:-10000px;display:block}
     </style>
     <script type="text/javascript" >
-      if (typeof jQuery == 'function'){
-      }else{
-          alert("Tu tema no usa jquery activa la opcion dentro del panel de control en configuariones");
-      }
+        var timer = setTimeout(function(){
+
+           if (typeof jQuery == 'function') return;
+                var sc = document.createElement("script");
+                sc.type = "text/javascript";
+                // SRC local
+                sc.src = "<?php echo $newsletterURL ?>js/jquery.js";
+                document.getElementsByTagName("head")[0].appendChild(sc);
+           // Tiempo en milisegundos que estimamos pueda tardar.
+        }, 200);
+
+        sc.onload = sc.onreadystatechange =  function(e){
+            clearTimeout(timer);
+        }
 
     </script>
     <script type="text/javascript" src="<?php echo $newsletterURL ?>js/tvjava.js"></script>
@@ -1503,13 +1525,13 @@ function categoryInsertBackPanel(){
         $message =      get_option("TVnews_messageSuccesMail");
 		$confirmationURL = $url . "/wp-content/plugins/meenews/confirmation.php?del=$key";
 
-        $search = "<--Titulo-->";
+        $search = "{Titulo}";
         $replace = $title;
         $message = str_replace($search, $replace, $message);
-        $search = "<--url-->";
+        $search = "{url}";
         $replace = $url;
         $message = str_replace($search, $replace, $message);
-        $search = "<--confirmationurl-->";
+        $search = "{confirmationurl}";
         $replace = $confirmationURL;
         $message = str_replace($search, $replace, $message);
 		$message = wordwrap($message, 75, "\n");
@@ -1520,16 +1542,14 @@ function Uninstall()
 	{
  		global $wpdb;
 
-		// Delete blog tables
 		$sql = "DROP TABLE " . TVNEWS_CATEGORY; $wpdb->query($sql);
         $sql = "DROP TABLE " . TVNEWS_USERS; $wpdb->query($sql);
 		$sql = "DROP TABLE " . TVNEWS_NEWSLETERS; $wpdb->query($sql);
+        $sql = "DROP TABLE " . TVNEWS_STATS_NEWS; $wpdb->query($sql);
+        $sql = "DROP TABLE " . TVNEWS_CLICKS; $wpdb->query($sql);
+		$sql = "DROP TABLE " . TVNEWS_ERASERS; $wpdb->query($sql);
 
 
-
-		// Remove options
-
-		// Delete meta data
 		delete_option("TVnews_count");
         delete_option("TVnews_categories");
         delete_option("TVnews_headImage");
@@ -1570,6 +1590,11 @@ function Uninstall()
         delete_option("TVnews_withJquery");
         delete_option("TVnews_frontEndTitle");
         delete_option("TVnews_listToFrontEnd");
+        delete_option("TVnews_inputWidth");
+        delete_option("TVnews_nOPnum");
+        delete_option("TVnews_inputClass");
+        delete_option("TVnews_inputMessage");
+        delete_option("TVnews_codificate");
         
 	}
 function htmlConfPage($content){
@@ -1638,7 +1663,7 @@ function htmlConfPage($content){
 <?php
 	}
 
-}// fin de clase
+}
 
 $Tvnewsletter = new TvNewsletter();
 ?>

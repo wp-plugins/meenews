@@ -9,6 +9,7 @@ class TvDesignNews {
             $result .= TvDesignNews::construcTables($categoselect);
         }
         return $result;
+        
     }
     function removeNewsletter($id){
 		global $wpdb;
@@ -17,21 +18,21 @@ class TvDesignNews {
 		$results = $wpdb->query( $query );
 		return true;
 	}
-    
+
     function extractPost($postId){
-       
+
         global $wpdb;
 
-        $query = "SELECT * FROM {$wpdb->posts} WHERE ID={$postId};";
+        $query = "SELECT * FROM {$wpdb->posts} WHERE ID='$postId';";
 		$results = $wpdb->get_results( $query );
-        
+
         return $results;
     }
 
     function nameCategory($idcategory){
         global $wpdb;
 
-        $query = "SELECT * FROM {$wpdb->terms} WHERE term_id={$idcategory};";
+        $query = "SELECT * FROM {$wpdb->terms} WHERE term_id='$idcategory';";
 		$results = $wpdb->get_results( $query );
 
         foreach($results as $result)
@@ -42,10 +43,7 @@ class TvDesignNews {
     function construcTables($category){
         global $wpdb;
         global $traducciones;
-        /*/$join = " INNER JOIN $wpdb->term_relationships AS tr ON p.ID = tr.object_id INNER JOIN $wpdb->term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id";
-		$join .= " AND tt.taxonomy = 'category' AND tt.term_id IN ($category)";
-        $query = "SELECT p.* FROM $wpdb->posts AS p $join  order by post_date DESC LIMIT 10";
-        $results = $wpdb->get_results($query);/*/
+
         global $post;
         $results = get_posts('numberposts=10&category='.$category);
         if ($results){
@@ -61,7 +59,7 @@ class TvDesignNews {
                             <tbody>';
 
 
-                  
+
                   foreach($results as $result) :
                           $table .= '<tr >
                                         <td id="tit'.$result->ID.'">'.$result->post_title.'</td>
@@ -77,7 +75,7 @@ class TvDesignNews {
             <br>';
         }
         return $table;
-      
+
     }
 
     function generateTheme(){
@@ -86,39 +84,39 @@ class TvDesignNews {
         $colorBackground =      "#".get_option("TVnews_colorBackground");
         $colorTexto =      "#".get_option("TVnews_colorText");
         $messageDelette =      get_option("TVnews_messageDeleteMail");
-        
+
         $headImage = 	get_option("TVnews_headImage");
         $messageHeaderNewsMail = 	get_option("TVnews_messageHeaderNewsMail");
         $final = TvDesignNews::generateHeader();
-        $fecha = "<p  style='float:left;font-size: 10px;font-family: arial;color:$colorBackground;margin-left:10px;'>". date("d-m-Y")."</p>";
-        $novisualiza = "<p  style='float:right;font-size: 10px;font-family: arial;color:$colorBackground;margin-right:10px'>".$traducciones['textNoVisualiza']."</p>";
+        $fecha = "<p  style='float:left;font-size: 10px;font-family: arial;color:$colorBackground;margin-left:10px;margin-top:0px'>". date("d-m-Y")."</p>";
+        $novisualiza = "<p  style='float:right;font-size: 10px;font-family: arial;color:$colorBackground;margin-right:10px;margin-top:0px'>".$traducciones['textNoVisualiza']."</p>";
         $title = get_bloginfo("name");
         $colorH1 =      "#".get_option("TVnews_colorH1");
         $colorBackground =      "#".get_option("TVnews_colorBackground");
-        $search = "<--Title-->";
-        $replace = "<div style='background-color:$colorH1; color:$colorBackground;width:100%; height:16px; text-align: center;padding-top:12px'>".$fecha.$novisualiza."</div>";
+        $search = "{Title}";
+        $replace = "<div style='background-color:$colorH1; color:$colorBackground;width:100%;height:19px;padding-top:4px;'>".$fecha.$novisualiza."</div>";
         $final['message'] = str_replace($search, $replace, $final['message']);
-        $search = "<--Wellcome Message-->";
+        $search = "{Wellcome Message}";
         $replace = $messageHeaderNewsMail;
         $final['message'] = str_replace($search, $replace, $final['message']);
-        $search = "<--HeadImage-->";
+        $search = "{HeadImage}";
         $replace = "<img src='". plugins_url('meenews/customimages/'.$headImage) ."'>";
         $final['message'] = str_replace($search, $replace, $final['message']);
-        $search = "<--Lista-->";
+        $search = "{Lista}";
         $replace = "<ul class='lista'></ul>";
         $final['message'] = str_replace($search, $replace, $final['message']);
-        $search = "<--ListaFooter-->";
+        $search = "{ListaFooter}";
         $replace = "<ul class='lista' style='background-color:$colorH1; color:$colorBackground; width:100%; height:30x; text-align: left; padding-left:5px;'>
         <li>Resumen Newsletter</li></ul>";
         $final['message'] = str_replace($search, $replace, $final['message']);
-        $search = "<--Content-->";
+        $search = "{Content}";
         $replace = "<table  border='0' class='newsletter' width='100%' cellpadding='2' cellspacing='2'><tbody id='finalTabla'></tbody></table>";
         $final['message'] = str_replace($search, $replace, $final['message']);
-        $search = "<--Footer-->";
+        $search = "{Footer}";
         $replace = "<p style='font-family:arial; font-size:10px; text-align:justify; width:auto; color:$colorTexto' class='contenido' align='left'>$messageDelette Mee Newsletter Plugin</p>";
         $final['message'] = str_replace($search, $replace, $final['message']);
         return $final['style'].$final['message'];
-        
+
     }
 
     function generateFinalNeswletter($newsletter){
@@ -138,12 +136,13 @@ class TvDesignNews {
         $cuerpo .= '</div></body>';
         $cuerpo .= '</html>';
         $final =$header.$cuerpo;
-        
+
         return $final;
     }
 
     function saveNewsletter($newsletter, $title, $mode = "manual"){
-        global $wpdb;
+
+          global $wpdb;
         $sizeTexto =      get_option("TVnews_sizeText")."px";
         $colorBody =      "#".get_option("TVnews_colorBody");
         $fecha = date("Y-m-d H:i:s");
@@ -180,7 +179,7 @@ class TvDesignNews {
 
     function howUserHave ($lista){
         global $wpdb;
-        $tabla = $wpdb->prefix . 'newsUsers';
+        $tabla = $wpdb->prefix . 'newsusers';
         $query = "SELECT COUNT(*)  FROM $tabla" ;
         if ($lista != "all")
         $query .= " WHERE id_categoria = '$lista' ;";
@@ -210,7 +209,7 @@ class TvDesignNews {
         $styleSelected =      get_option("TVnews_styleSelected");
         $messageHeaderNewsMail = 	get_option("TVnews_messageHeaderNewsMail");
         $colorBody =      "#".get_option("TVnews_colorBody");
-  
+
         $style = "<style type='text/css'>
                     .newsletter .separador, .separador{width:100%; clear:both; border-bottom:$sizeSeparator dotted $colorSeparator;height:2px;margin:5px 0 5px 0;}
                     .design{font-family: arial; font-size:$sizeTexto; text-align:justify; background-color:$colorBody;color:$colorTexto;}
@@ -226,17 +225,17 @@ class TvDesignNews {
                     .principal{margin:0 auto}
                     </style>
                     ";
-        
+
         $message = file_get_contents("$styleSelected", 'r');
-        $search = "<--FondoCustomizado-->";
+        $search = "{FondoCustomizado}";
         $replace = "style='table-layout:fixed;background-color:$colorBackground;margin:0 auto'";
         $message = str_replace($search, $replace, $message);
         $design['style'] = $style;
         $design['message'] = $message;
-        $search = "<--DontVisualize-->";
+        $search = "{DontVisualize}";
         $replace = "<p  style='float:right;font-size: 10px;font-family: arial;color:#$colorTexto;'>".$traducciones['textNoVisualiza']."</p>";
         $design['message'] = str_replace($search, $replace, $design['message']);
-        $search = "<--Separador-->";
+        $search = "{Separador}";
         $replace = "<p  style='width:100%; border-bottom: $sizeSeparator $colorSeparator dotted; clear:both; height:2px'></p>";
         $design['message'] = str_replace($search, $replace, $design['message']);
         return $design;

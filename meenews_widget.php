@@ -3,7 +3,7 @@
 Plugin Name: Meenews Widget
 Plugin URI: http://www.wp-newsletter.com
 Description: Adds a form Widget to inscribe a newsletter list
-Version: 2.5
+Version: 2.7.1
 Author: Daniel Perez Tierravirtual.com
 Author URI: http://Tierravirtual.com
 */
@@ -28,6 +28,7 @@ Author URI: http://Tierravirtual.com
 */
 
 ### Function: Init WP-Meenews Widget
+
 function widget_meenews_init() {
 	if (!function_exists('register_sidebar_widget')) {
 		return;

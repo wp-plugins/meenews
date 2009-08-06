@@ -13,12 +13,13 @@ $succcessMsg = true;
 $membersUpdate = false;
 $limit = 0;
 
-//si modificamos la configuracion general
+
 if($_POST["send"]==$traducciones['Btn_AG']){
     
     update_option("TVnews_wantImages", $_POST["wantImages"]);
     update_option("TVnews_withJquery", $_POST["jquerys"]);
 	update_option("TVnews_imagesWidth", $_POST["imagesWidth"]);
+    update_option("TVnews_codificate", $_POST["codificate"]);
     update_option("TVnews_colorLink", substr($_POST["colorLink"],1));
     update_option("TVnews_colorText",substr($_POST["colorText"],1));
     update_option("TVnews_colorH1", substr($_POST["colorH1"],1));
@@ -33,7 +34,6 @@ if($_POST["send"]==$traducciones['Btn_AG']){
     TvNewsletter::echoAdvertiseMessage($traducciones['Msj_18']);
 
 }
-//si modificamos la configuracion general
 if($_POST["send"]==$traducciones['Btn_AT']){
 
     update_option("TVnews_styleSelected", $_POST["styleSelected"]);
@@ -42,12 +42,10 @@ if($_POST["send"]==$traducciones['Btn_AT']){
     TvNewsletter::echoAdvertiseMessage($traducciones['Msj_12']);
 
 }
-//si modificamos la configuracion general
 if($_POST["send"]==$traducciones['Btn_AE']){
     include_once("class.uploadphoto.php");
     $successMsg=true;
     update_option("TVnews_period", $_POST["period"]);
-	//validate that the number of posts is a positive number
 	if(is_numeric($_POST["count"]) && $_POST["count"] > 0){
         update_option("TVnews_count", $_POST["count"]);
 	}
@@ -68,22 +66,19 @@ if($_POST["send"]==$traducciones['Btn_AE']){
             $tipo_archivo = $_FILES['imagen_cabecera']['type'];
             $tamano_archivo = $_FILES['imagen_cabecera']['size'];
 			
-			//extensión del archivo
+
 			$extension = explode(".",$nombre_archivo); 
 			$num = count($extension)-1; 
 
-			//renombro la foto en el directorio
 			$nombre_archivo_final =  time().'.'.$extension[$num];
 
-			// Características de la nueva imagen
 			$imagenoriginal = $_FILES['imagen_cabecera']['tmp_name'];
 			$dirdestino = "../wp-content/plugins/meenews/customimages/";
 			$nombrefinal = $nombre_archivo_final;
 			$anchofinal = 600;
 			$altofinal = 700;
 			$calidad = 82;
-			
-			// Ejecuto la función para redimensionar la foto
+
 			redimensionar($imagenoriginal, $dirdestino, $nombrefinal, $anchofinal, $altofinal, $calidad);
 			update_option("TVnews_headImage",$nombre_archivo_final );
            $message = $traducciones['Msj_14'].$nombre_archivo_final."";
@@ -103,14 +98,11 @@ if($_POST["send"]==$traducciones['Btn_AE']){
             $tipo_archivo = $_FILES['imagen_fondo']['type'];
             $tamano_archivo = $_FILES['imagen_fondo']['size'];
 
-			//extensión del archivo
 			$extension = explode(".",$nombre_archivo);
 			$num = count($extension)-1;
 
-			//renombro la foto en el directorio
 			$nombre_archivo_final =  time().'.'.$extension[$num];
 
-			// Características de la nueva imagen
 			$imagenoriginal = $_FILES['imagen_fondo']['tmp_name'];
 			$dirdestino = "../wp-content/plugins/meenews/customimages/";
 			$nombrefinal = $nombre_archivo_final;
@@ -118,7 +110,6 @@ if($_POST["send"]==$traducciones['Btn_AE']){
 			$altofinal = 900;
 			$calidad = 82;
 
-			// Ejecuto la función para redimensionar la foto
 			redimensionar($imagenoriginal, $dirdestino, $nombrefinal, $anchofinal, $altofinal, $calidad);
 			update_option("TVnews_backgroundImage",$nombre_archivo_final );
            $message = $traducciones['Msj_14'].$nombre_archivo_final;
@@ -146,14 +137,11 @@ if($_POST["send"]==$traducciones['Btn_AFE']){
             $tipo_archivo = $_FILES['imagen_boton']['type'];
             $tamano_archivo = $_FILES['imagen_boton']['size'];
 
-			//extensión del archivo
 			$extension = explode(".",$nombre_archivo);
 			$num = count($extension)-1;
 
-			//renombro la foto en el directorio
 			$nombre_archivo_final =  time().'.'.$extension[$num];
 
-			// Características de la nueva imagen
 			$imagenoriginal = $_FILES['imagen_boton']['tmp_name'];
 			$dirdestino = "../wp-content/plugins/meenews/customimages/";
 			$nombrefinal = $nombre_archivo_final;
@@ -161,7 +149,6 @@ if($_POST["send"]==$traducciones['Btn_AFE']){
 			$altofinal = 80;
 			$calidad = 100;
 
-			// Ejecuto la función para redimensionar la foto
 			if (redimensionar($imagenoriginal, $dirdestino, $nombrefinal, $anchofinal, $altofinal, $calidad)){
                 update_option("TVnews_inputTextImage",$nombre_archivo_final );
                $message = $traducciones['Msj_14'] ;
@@ -200,14 +187,12 @@ if($_POST["send"]==$traducciones['Btn_AFE']){
         TvNewsletter::echoAdvertiseMessage($traducciones['Msj_16'] );
 
     }
-//prints the HTML to configure the newsletter
 ?>
 
 <script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/js/ui.core.js"></script>
 <script type="text/javascript" src="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/js/ui.tabs.js"></script>
 <link href="<?php echo get_bloginfo("wpurl") ?>/wp-content/plugins/meenews/css/ui.tabs.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
-// Tabs
 jQuery(document).ready(function() {
 	jQuery('#tvtabs > ul').tabs();
 });
@@ -258,4 +243,4 @@ TvNewsletter::configFrontEndSub();
 TvNewsletter::configFrontMessages();
 ?>
 </div>
-</div> <!--/ tvtabs -->
+</div> 

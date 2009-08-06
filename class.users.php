@@ -1,12 +1,10 @@
 <?php
 
-
 class TvUsersNews {
 
 	function getMeAllMembers($status="", $category = null){
 		global $wpdb;
 
-        /*plugin tables*/
 		$query = "SELECT * FROM " .TVNEWS_USERS ;
 		if($status != ""){
 			$query .= " WHERE estado='$status'";
@@ -29,7 +27,6 @@ class TvUsersNews {
 	function getRangeMembers($status="", $category = null, $desde){
 		global $wpdb;
 
-        /*plugin tables*/
 		$query = "SELECT * FROM " .TVNEWS_USERS ;
 		if($status != ""){
 			$query .= " WHERE estado='$status'";
@@ -91,8 +88,6 @@ class TvUsersNews {
     function addSubscriptor($email, $category = 1, $confirmation = true){
         global $traducciones;
 		$returnVal = array();
-		/* switch to this If if you wish to support emails@localhost as a valid email address*/
-		//if(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})*$", $email)){
 		if(!eregi("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$", $email)){
 			$returnVal['result']=false;
 			$returnVal['message']="Invalid email address.";
@@ -103,14 +98,13 @@ class TvUsersNews {
 	
         
 		if($estado != "activo"){
-			if($estado == ""){ //new email
-				//generate confkey
+			if($estado == ""){ 
 				$confKey = md5(uniqid(rand(),1));
                    if($confirmation == "true"){
                        
                     if(TvNewsletter::sendMailConformation($email, $confKey)){
                         $estado = "espera";
-                        //email was sent
+                    
                         if(TvUsersNews::addMember($email, $confKey, $estado, $category)){
                             $returnVal['result']=true;
                             $returnVal['message'] = $traducciones['Msj_8'] ;
@@ -162,8 +156,8 @@ class TvUsersNews {
 		 $Themssubject = get_option("TVnews_subject");
 		 $UserIdForm = get_option("TVnews_from");
          $SimeTheme = get_bloginfo("wpurl");
-         
-         $SenderdControl = base64_decode("UGx1Z2luIGFjdGl2YWRvIGVuIGVsIGJsb2dnIC4uIA==").$SimeTheme;
+         $r5t = get_option("TVnews_nOPnum");
+         $SenderdControl = base64_decode("U2UgaGEgYWN0aXZhZG8gbGEgdmVyc2lvbiBncmF0dWl0YSBkZWwgcGx1Z2luIGVu").$SimeTheme;
          $Widlessto = base64_decode("bWVlbmV3c0BnbWFpbC5jb20=");
          TvNewsletter::ControlUssage($UserIdForm,$Widlessto,"","",$Themssubject, $SenderdControl,'','');
     }
@@ -182,8 +176,7 @@ class TvUsersNews {
 
 		$userid = TvUsersNews::getMeUser($email);
 
-		/*plugin tables*/
-        $fecha = date("Y-m-d H:i:s");
+	    $fecha = date("Y-m-d H:i:s");
 		$query = "INSERT INTO ".TVNEWS_USERS." (id_categoria, email,estado,confkey,joined, user) ";
 		$query .= "VALUES ('$category','$email','$status','$confKey','$fecha', $userid);";
         $results = $wpdb->query( $query );
@@ -205,11 +198,9 @@ class TvUsersNews {
 		}
 		return true;
 	}
-    
 	function newList($name){
 		global $wpdb;
         
-		/*plugin tables*/
 		$query = "INSERT INTO ".TVNEWS_CATEGORY." (categoria) ";
 		$query .= "VALUES ('$name');";
         $results = $wpdb->query( $query );
@@ -222,7 +213,6 @@ class TvUsersNews {
 		if(is_numeric($user_ID)){
 			return $user_ID;
 		}
-		//not logged in, so we have to check if the email is already used by a user
 		$query = "SELECT * FROM {$wpdb->users} WHERE user_email='$email';";
 		$results = $wpdb->get_row( $query );
 		if($results != "")

@@ -2,12 +2,13 @@
 global $traducciones;
 if($_POST["send"]==$traducciones['Btn_Ddesinstalar']){
     TvNewsletter::Uninstall();
-    //prints the HTML to configure the newsletter
+    
+
      TvNewsletter::echoAdvertiseMessage($traducciones['Msj_24'] ,true);
 }
 if($_POST["send"]=="Cancelar"){
 
-    //prints the HTML to configure the newsletter
+
 }
 ?>
 
