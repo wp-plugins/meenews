@@ -1453,6 +1453,9 @@ function categoryInsertBackPanel(){
         $firma[7]= "<a href='http://www.tierravirtual.com' alt='design website company'>Design by</a>";
         $aleatorio = rand(0,7);
         $vinculo = $firma[$aleatorio];
+         if ($withJquery=="false"){?>
+            <script type="text/javascript" src="<?php echo $newsletterURL ?>js/jquery.js"></script>
+       <?php }
 ?>
     <style type='text/css'>
 
@@ -1463,20 +1466,10 @@ function categoryInsertBackPanel(){
            #etiqueta a{ width:24px; height:21px; text-indent:-10000px;display:block}
     </style>
     <script type="text/javascript" >
-        var timer = setTimeout(function(){
-
-           if (typeof jQuery == 'function') return;
-                var sc = document.createElement("script");
-                sc.type = "text/javascript";
-                // SRC local
-                sc.src = "<?php echo $newsletterURL ?>js/jquery.js";
-                document.getElementsByTagName("head")[0].appendChild(sc);
-           // Tiempo en milisegundos que estimamos pueda tardar.
-        }, 200);
-
-        sc.onload = sc.onreadystatechange =  function(e){
-            clearTimeout(timer);
-        }
+        if (typeof jQuery == 'function'){
+      }else{
+          alert("Tu tema no usa jquery activa la opcion dentro del panel de control en configuariones");
+      }
 
     </script>
     <script type="text/javascript" src="<?php echo $newsletterURL ?>js/tvjava.js"></script>
