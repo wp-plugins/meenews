@@ -19,13 +19,24 @@ $newsletterURL= get_bloginfo("wpurl") . "/wp-content/plugins/meenews/";
                     });
           </script>
 <div id="tvtabs">
-
         <ul>
         <li><a href="#tab1"><span><?php echo $traducciones['textGenerales']; ?></span></a></li>
         <li><a href="#tab2"><span><?php echo $traducciones['textNewsletter']; ?></span></a></li>
         
         </ul>
 <div id="tab1">
+        <h2><?php _e($traducciones['textStats']); ?></h2>
+        <p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="custom" value="compra">
+        <input type="hidden" name="hosted_button_id" value="6532066">
+        <input type="hidden" name="return" value="http://www.wp-newsletter.com/comercial.php?a=thank">
+        <input type="hidden" name="cancel_return" value="http://www.wp-newsletter.com/comercial.php?a=cancel">
+        <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal. La forma rápida y segura de pagar en Internet.">
+        <img alt="" border="0" src="https://www.paypal.com/es_ES/i/scr/pixel.gif" width="1" height="1">
+        </form>
+        </p>
         <div class="wrap" style="height:700px" >
 		<img src="<?php  echo plugins_url('meenews/stats.png'); ?>"  >
 		</div>
@@ -33,6 +44,18 @@ $newsletterURL= get_bloginfo("wpurl") . "/wp-content/plugins/meenews/";
 <div id="tab2">
 
     <div class="wrap">
+     <h2><?php _e($traducciones['textStats']); ?></h2>
+        <p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="custom" value="compra">
+        <input type="hidden" name="hosted_button_id" value="6532066">
+        <input type="hidden" name="return" value="http://www.wp-newsletter.com/comercial.php?a=thank">
+        <input type="hidden" name="cancel_return" value="http://www.wp-newsletter.com/comercial.php?a=cancel">
+        <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal. La forma rápida y segura de pagar en Internet.">
+        <img alt="" border="0" src="https://www.paypal.com/es_ES/i/scr/pixel.gif" width="1" height="1">
+        </form>
+        </p>
  		<img src="<?php  echo plugins_url('meenews/stats1.png'); ?>"  >
        
        
