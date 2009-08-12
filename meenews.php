@@ -102,6 +102,7 @@ function create_newsletter_tables() {
     add_option("TVnews_nOPnum", "xxxxxx");
     add_option("TVnews_codificate", "iso8859-1");
 	add_option("TVnews_version", "2.7.1");
+    add_option("TVnews_uninstall", "false");
     add_option("TVnews_messageHeaderNewsMail", "Hello, this newsletter contains information about my site for any query please send an email to ejemplo@mail.com");
     add_option("TVnews_messageConfirmationMail", "Has received a subscription request to Newsletter {Titulo} at: \n {url} \n
                                                    \n order to complete your subscription must click on the following link: \n {confirmationurl} \ n
@@ -204,6 +205,10 @@ function create_newsletter_tables() {
 }
 function Uninstall()
 	{
+    $uninstall = 	get_option("TVnews_uninstall");
+
+    if ($uninstall == "true"){
+
  		global $wpdb;
 
 		$sql = "DROP TABLE " . TVNEWS_CATEGORY; $wpdb->query($sql);
@@ -257,8 +262,9 @@ function Uninstall()
         delete_option("TVnews_inputWidth");
         delete_option("TVnews_nOPnum");
         delete_option("TVnews_inputClass");
+        delete_option("TVnews_uninstall");
         delete_option("TVnews_inputMessage");
         delete_option("TVnews_codificate");
-        
+     }
 	}
 ?>

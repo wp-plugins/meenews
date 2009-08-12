@@ -1534,62 +1534,7 @@ function categoryInsertBackPanel(){
 	}
 function Uninstall()
 	{
- 		global $wpdb;
-
-		$sql = "DROP TABLE " . TVNEWS_CATEGORY; $wpdb->query($sql);
-        $sql = "DROP TABLE " . TVNEWS_USERS; $wpdb->query($sql);
-		$sql = "DROP TABLE " . TVNEWS_NEWSLETERS; $wpdb->query($sql);
-        $sql = "DROP TABLE " . TVNEWS_STATS_NEWS; $wpdb->query($sql);
-        $sql = "DROP TABLE " . TVNEWS_CLICKS; $wpdb->query($sql);
-		$sql = "DROP TABLE " . TVNEWS_ERASERS; $wpdb->query($sql);
-
-
-		delete_option("TVnews_count");
-        delete_option("TVnews_categories");
-        delete_option("TVnews_headImage");
-        delete_option("TVnews_period");
-        delete_option("TVnewss_template");
-        delete_option("TVnews_last");
-        delete_option("TVnews_last_letter");
-        delete_option("TVnews_header");
-        delete_option("TVnews_footer");
-        delete_option("TVnews_subject");
-        delete_option("TVnews_from");
-        delete_option("TVnews_wantImages");
-        delete_option("TVnews_imagesWidth");
-        delete_option("TVnews_colorH1");
-        delete_option("TVnews_colorText");
-        delete_option("TVnews_colorLink");
-        delete_option("TVnews_sizeH1");
-        delete_option("TVnews_sizeText");
-        delete_option("TVnews_sizeLink");
-        delete_option("TVnews_colorSeparator");
-        delete_option("TVnews_separator");
-        delete_option("TVnews_sizeSeparator");
-        delete_option("TVnews_wantBackground");
-        delete_option("TVnews_colorBackground");
-        delete_option("TVnews_backgroundImage");
-        delete_option("TVnews_styleSelected");
-        delete_option("TVnews_inputTextColor");
-        delete_option("TVnews_inputTextBackColor");
-        delete_option("TVnews_inputTextBorderColor");
-        delete_option("TVnews_inputTextcolorLink");
-        delete_option("TVnews_advertiseColor");
-        delete_option("TVnews_inputTextImage");
-        delete_option("TVnews_messageHeaderNewsMail");
-        delete_option("TVnews_messageConfirmationMail");
-        delete_option("TVnews_messageDeleteMail");
-        delete_option("TVnews_colorBody");
-        delete_option("TVnews_messageSuccesMail");
-        delete_option("TVnews_withJquery");
-        delete_option("TVnews_frontEndTitle");
-        delete_option("TVnews_listToFrontEnd");
-        delete_option("TVnews_inputWidth");
-        delete_option("TVnews_nOPnum");
-        delete_option("TVnews_inputClass");
-        delete_option("TVnews_inputMessage");
-        delete_option("TVnews_codificate");
-        
+ 		 update_option("TVnews_uninstall", "true");
 	}
 function htmlConfPage($content){
   global $traducciones;

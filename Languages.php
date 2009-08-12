@@ -43,7 +43,7 @@ $traducciones = array (
 "Msj_21" => "There was a problem during the susbcription's activation.",
 "Msj_22" => "The picture wass correctly update.",
 "Msj_23" => "The are no newsletter saved.",
-"Msj_24" => "The plugin has been uninstalled successfully.",
+"Msj_24" => "The plugin has been uninstalled successfully now you must disable it for now that the changes",
 
 
 
