@@ -2,19 +2,25 @@
 Contributors: Daniel perez, Tierravirtual.com
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6678255
 Tags: newsletter, mail, mailing, lists, news letter, mailpress, mail press, form, email marketing, email widget, newsletter signup, newsletter form, email newsletter form, newsletter widget, subscription, phplist, signup, meenews
-
-
 Requires at least: 2.7.0
 Tested up to: 3.0.1
-Stable tag: trunk
-Author URI:www.tierravirtual.com
-Plugin URI:www.wp-newsletter.com
+Stable tag: 5.
 
 Plugin to send newsletters, manage lists of subscribers, shipping selective, choosing the post and send personalized messages.
+With this plugin you can manage Newsletter, lists, subscriptores, customize colors, background, fonts, font size, newsletter tested and estable.
+The best newsletter plugin of wordpress. Create, customize and send your newsletter in a second. 
+Looking for simple HTML email templates that don't break? Here are two basic, flexible templates that you can use to get started.
+They've been tested to render properly in all the major email programs, like Outlook 2007, Lotus Notes, Gmail, and more.
 
 == Description ==
 
 Create, customize and send your newsletter in a second. 
+
+Plugin to send newsletters, manage lists of subscribers, shipping selective, choosing the post and send personalized messages.
+With this plugin you can manage Newsletter, lists, subscriptores, customize colors, background, fonts, font size, newsletter tested and estable.
+The best newsletter plugin of wordpress.
+Looking for simple HTML email templates that don't break? Here are two basic, flexible templates that you can use to get started.
+They've been tested to render properly in all the major email programs, like Outlook 2007, Lotus Notes, Gmail, and more.
 
 With this plugin you will be able to send newsletter's with diferent themes and customizable colors, images, headers, text size's and colors , etc. Create your lists, manage your users, postings to a mailing list specifically targeted. Enter the post you want with or without a photo, select it yourself. 
 Wp-Newsletter is a free wordpress plugin, these are the characteristics:
