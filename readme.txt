@@ -1,10 +1,10 @@
 === MeeNews Newsletter Plugin ===
 Contributors: Daniel perez, Tierravirtual.com
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6678255
-Tags: newsletter, mail, mailing, lists, news letter, mailpress, mail press, form, email marketing, email widget, newsletter signup, newsletter form, email newsletter form, newsletter widget, subscription, phplist, signup, meenews
+Tags: Newsletter, newsletter, opt-in, email marketing, newsletter plugin, plugin, user list, emailing, newsletter form, manager newsletter, phplist, mailpress, mailchimp, plugin newsletter, send newsletter, newsletter sender, subscribers
 Requires at least: 2.7.0
 Tested up to: 3.0.1
-Stable tag: 5.
+Stable tag: 5.0
 
 Plugin to send newsletters, manage lists of subscribers, shipping selective, choosing the post and send personalized messages.
 With this plugin you can manage Newsletter, lists, subscriptores, customize colors, background, fonts, font size, newsletter tested and estable.
@@ -67,19 +67,15 @@ Don't forget to read how to install, in the documentation section. http://www.wp
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
-
-= how translate the plugin? =
+ A question that someone might have 
+ how translate the plugin? 
   The plugin detect you wordpress language ( english default )
 
   **spanish**
 
-Â¿ como traduzco el plugin ?
+como traduzco el plugin ?
 
- El pulg—n esta traducido en 4 idiomas y detecta automaticamente el idioma de tu wordpress
-
-
-Answer to foo bar dilemma.
+ El plugin esta traducido en 4 idiomas y detecta automaticamente el idioma de tu wordpress
 
 == Screenshots ==
 
