@@ -1,4 +1,4 @@
-=== MeeNews Newsletter Plugin ===
+=== Newsletter Meenews ===
 Contributors: Daniel perez, Tierravirtual.com
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6678255
 Tags: Newsletter, newsletter, opt-in, email marketing, newsletter plugin, plugin, user list, emailing, newsletter form, manager newsletter, phplist, mailpress, mailchimp, plugin newsletter, send newsletter, newsletter sender, subscribers
