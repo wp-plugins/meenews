@@ -157,6 +157,8 @@ if (get_option("TVnews_uninstall") != "true"){
         $sql = "DROP TABLE " . (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'newstatsclick';$wpdb->query($sql);
 	$sql = "DROP TABLE " . (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'newstatserasers'; $wpdb->query($sql);
  }
+}else{
+    update_option("TVnews_uninstall","false");
 }
 
                    
