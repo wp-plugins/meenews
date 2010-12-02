@@ -41,7 +41,7 @@ define('MEENEWS_USEDPOSTS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->pref
 define('MEENEWS_PENDENTSENDS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'meenewsendpended');
 define('MEENEWS_LINKS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'meenewslinks');
 define('MEENEWS__CUSTOMIMAGES', plugins_url('meenews/customimages/'));
-define('MEENEWS',  ABSPATH . 'wp-content/plugins/meenews/');
+define('MEENEWS',  WP_PLUGIN_DIR . '/meenews/');
 define('MEENEWS_LIB', MEENEWS.'inc/');
 define('MEENEWS_STYLES', MEENEWS_LIB . 'css/styles.css');
 define('MEENEWS_CLASSES', MEENEWS_LIB . 'classes/');
