@@ -118,7 +118,7 @@ class MeeNewsletter extends MeenewsManager{
             $newsletter = stripslashes($newsletter);
             $mode = "manual";
             $send = 1;
-            $sending = false;
+            $sending = "0000-00-00 00:00:00";
 
             $query = "INSERT INTO ".MEENEWS_NEWSLETERS." (title, newsletter, slug, mode, send, sending) ";
                     $query .= "VALUES ('$title', '$newsletter', '$slug', '$mode', '$send', '$sending');";
@@ -651,7 +651,7 @@ class MeeNewsletter extends MeenewsManager{
                     $i = 1;
                     $slug = sanitize_title($slug);
                     while ($igual == true){
-                        $query = "SELECT * FROM " .TVNEWS_NEWSLETERS." WHERE slug='$slug'"  ;
+                        $query = "SELECT * FROM " .MEENEWS_NEWSLETERS." WHERE slug='$slug'"  ;
                         $query .= " ;";
                         $results = $wpdb->get_results( $query );
                         if ($results){
