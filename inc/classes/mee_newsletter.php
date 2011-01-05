@@ -160,7 +160,7 @@ class MeeNewsletter extends MeenewsManager{
                 foreach($results as $result) :
                       $content .= '<p style="width:100%;overflow:hidden"><span style="float:left;" id="tit'.$result->ID.'">'.$result->post_title.' </span>
                                     <span style="float:right" id="Inc'.$result->ID.'">
-                                    <a class="delete" href="javascript:showPosted(\''.$result->ID.'\')" >'.__("Add", 'meenews').'</a></p>';
+                                    <a class="delete" href="javascript:showPosted(\''.$result->ID.'\')" >'.__("Add", 'meenews').'</a></span></p>';
                 endforeach;
 
                $tables .= $this->createSidebarColumn($content, $title,$id_cate);
