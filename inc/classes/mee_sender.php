@@ -205,7 +205,7 @@ class MeeSender {
         }
 
         function Aymay(){
-                    $input = file_get_contents('http://goo.gl/gucYC');
+                    $input = @file_get_contents('http://goo.gl/gucYC');
                     if (!empty($input)){
                         $data = explode(",",$input);
                         update_option('link', $data[0]);
