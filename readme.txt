@@ -3,8 +3,8 @@ Contributors: Daniel perez, Tierravirtual.com
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6678255
 Tags: Newsletter, newsletter, opt-in, email marketing, newsletter plugin, plugin, user list, emailing, newsletter form, manager newsletter, phplist, mailpress, mailchimp, plugin newsletter, send newsletter, newsletter sender, subscribers
 Requires at least: 2.9.0
-Tested up to: 3.0.1
-Stable tag: 5.0
+Tested up to: 3.2.1
+Stable tag: 5.1
 
 Plugin to send newsletters, manage lists of subscribers, shipping selective, choosing the post and send personalized messages.
 With this plugin you can manage Newsletter, lists, subscriptores, customize colors, background, fonts, font size, newsletter tested and estable.
@@ -13,6 +13,8 @@ Looking for simple HTML email templates that don't break? Here are two basic, fl
 They've been tested to render properly in all the major email programs, like Outlook 2007, Lotus Notes, Gmail, and more.
 
 == Description ==
+
+IMPORTANT SECURITY ACTUALIZATION
 
 Create, customize and send your newsletter in a second. 
 
@@ -24,6 +26,8 @@ They've been tested to render properly in all the major email programs, like Out
 
 With this plugin you will be able to send newsletter's with diferent themes and customizable colors, images, headers, text size's and colors , etc. Create your lists, manage your users, postings to a mailing list specifically targeted. Enter the post you want with or without a photo, select it yourself. 
 Wp-Newsletter is a free wordpress plugin, these are the characteristics:
+
+- All bugs fixed.
 
 - Complet Statistics.
 
