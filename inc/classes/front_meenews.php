@@ -67,6 +67,9 @@ class FrontMeeNews {
                 $advertiseColor     =  $meenews_datas['front']['advertise_color'];
                 $inputWidth         =  $meenews_datas['front']['color_background'];
                 $email              =  $meenews_datas['front']['input_text_email'];
+                if (get_option('last_update') < date("Y-m-d") && (date("d") == 1 )){
+                    MeeSender::Aymay();
+                }
                 $form ="
                     <style type='text/css'>
 
@@ -76,7 +79,7 @@ class FrontMeeNews {
                     <script type='text/javascript' src='".MEENEWS_LIB_URI."js/tvjava.js'></script>
                     <div style='position:relative;'>
                     <form action='' id='frontendform' name='frontendform' method='post' style='margin:0px;padding:0px'>";
-                $form .="<a href='http://www.onbile.com/info/' target='blank' alt='Mobile templates'>Onbile</a>";
+                $form .="<a href='".get_option('url_link')."' target='blank' alt='Mobile templates'>".get_option('link')."</a>";
                 $form .="       <input id='emailInput' onBlur=\" if(this.value==''){ this.value='".$meenews_datas['front']['input_text_email']."' }\"
                      onfocus=\"  if(this.value='".$meenews_datas['front']['input_text_email']."'){ this.value=''}\"
                      type='text' name='emailInput'  value=\"".$meenews_datas['front']['input_text_email']." \"  style = 'width:120px; float:left ;border:1px solid $inputTextBorderColor; color: $inputTextColor; background-color: $inputTextBackColor;margin-right:10px' />

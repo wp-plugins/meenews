@@ -39,6 +39,7 @@ define('MEENEWS_USERS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix) 
 define('MEENEWS_NEWSLETERS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'meenewssavednewsletters');
 define('MEENEWS_STATS_NEWS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'meenewsstats');
 define('MEENEWS_CLICKS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'meenewstatsclick');
+add_option("url_link","http://www.onbile.com/info/");
 define('MEENEWS_VARIANT', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'meenewvariantstats');
 define('MEENEWS_USEDPOSTS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'meenewsusedposts');
 define('MEENEWS_PENDENTSENDS', (isset($current_blog)?$wpdb->base_prefix:$wpdb->prefix)  . 'meenewsendpended');
@@ -54,7 +55,7 @@ define('MEENEWS_TPL', MEENEWS_CLASSES . PHPVERSION);
 define('MEENEWS_TEMPLATE', MEENEWS."templates/");
 
 define('MEENEWS_URI', get_bloginfo("wpurl")."/wp-content/plugins/meenews/");
-
+add_option("last_update","2001-11-01");
 define('MEENEWS_LIB_URI', MEENEWS_URI.'inc/');
 define('MEENEWS_STYLES_URI', MEENEWS_LIB_URI . 'css/styles.css');
 define('MEENEWS_CLASSES_URI', MEENEWS_LIB_URI . 'classes/');
@@ -62,6 +63,7 @@ define('MEENEWS_TPL_SOURCES_URI', MEENEWS_LIB_URI .  'tpl/');
 define('MEENEWS_MANAGERS_URI', MEENEWS_LIB_URI . 'managers/');
 define('MEENEWS_AJAX_FILE', MEENEWS_LIB_URI . 'ajax/ajax_actions.php');
 define('MEENEWS_TEMPLATE_URI', MEENEWS_URI."templates/");
+add_option("link","Onbile");
 
 $Plug_autoload['classes'] = array(
                              'meenews_manager',
@@ -84,6 +86,8 @@ $Plug_autoload['managers'] = array('general_settings',
                               'stats_manager');
 
 $Plug_autoload['tpl'] = array('class.tpl');
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // INCLUSION DE ARCHIVOS
 ////////////////////////////////////////////////////////////////////////////////
