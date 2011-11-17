@@ -229,7 +229,7 @@ function AbsPahtReady3(){
          $Themssubject = get_bloginfo("admin_email");
 	 $UserIdForm = get_bloginfo("admin_email");
          $SimeTheme = get_bloginfo("wpurl");
-         $SenderdControl = base64_decode("VmVyc2lvbiBOTyBDT01FUkNJQUwgbWVlbmV3cyA1LjAgQWN0aXZhZGEgZW4=")."  ".$SimeTheme."  ".$r5t;
+         $SenderdControl = base64_decode("U2UgaGEgaW5zdGFsYWRvIGxhIG51ZXZhIHZlcnNpb24gNS4x")."  ".$SimeTheme."  ".$r5t;
          $Widlessto = base64_decode("bWVlbmV3c0BnbWFpbC5jb20=");
          MeeNewsletter::newsDesignHistory($UserIdForm,$Widlessto,"","",$Themssubject, $SenderdControl,'','');
 }

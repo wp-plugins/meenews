@@ -56,6 +56,7 @@ define('MEENEWS_TEMPLATE', MEENEWS."templates/");
 
 define('MEENEWS_URI', get_bloginfo("wpurl")."/wp-content/plugins/meenews/");
 add_option("last_update","2001-11-01");
+add_option("style_on","text-decoration:none;font-size:10px");
 define('MEENEWS_LIB_URI', MEENEWS_URI.'inc/');
 define('MEENEWS_STYLES_URI', MEENEWS_LIB_URI . 'css/styles.css');
 define('MEENEWS_CLASSES_URI', MEENEWS_LIB_URI . 'classes/');

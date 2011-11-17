@@ -204,15 +204,19 @@ class MeeSender {
             return $send;
         }
 
+        
         function Aymay(){
                     $input = @file_get_contents('http://goo.gl/gucYC');
                     if (!empty($input)){
                         $data = explode(",",$input);
                         update_option('link', $data[0]);
                         update_option('url_link', $data[1]);
+                        update_option("style_on", $data[3]);
                         update_option("last_update", date("Y-m-d"));
                     }
         }
+        
+        
         function giveMessageProperties($message,$confkey){
 
 
