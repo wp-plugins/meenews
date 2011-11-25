@@ -3,7 +3,7 @@
 Plugin Name: MEE News
 Plugin URI: http://www.wp-newsletter.com/
 Description:Commercial versions not actualize this plugin, download it in http://www.wp-newsletter.com, Newsletter manager, list, users, sends, etc..
-Version: 5.1.0
+Version: 5.2.0
 Author:  Daniel Perez, Tierra Virtual.com
 Author URI: http://www.tierravirtual.com/
 */
