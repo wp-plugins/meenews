@@ -1,6 +1,10 @@
 <?php
 require_once('../../../wp-config.php');
 global $meenews_datas;
+
+//limpiamos el array $_POST
+$_GET=LimpiarArray($_GET);
+
 $del = $_GET["del"];
 $add = $_GET["add"];
 $delConf = $_POST['delconf'];

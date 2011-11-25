@@ -172,6 +172,43 @@ class widget_meenewsletter_plugin extends WP_Widget {
      }
 
 }
+
+
+function limpia($var,$tags_permitidos='',$key=null){
+	if (!rtrim('_l',$key)) {
+		//no hace strip_tags
+		$var = preg_replace("%[^A-Za-zÃÃ‰ÃÃ“Ãšáéíóú0-9<>\_\-@\.ñ/:, ".$tags_permitidos."]%", "", $var);
+		return $var;
+	}
+	if (is_array($tags_permitidos)) {
+		$tags_permitidos=implode('',$tags_permitidos);
+		$var = strip_tags($var,$tags_permitidos);
+		
+	} else {
+		if (isset($tags_permitidos) and !empty($tags_permitidos)  and is_string($tags_permitidos) and $tags_permitidos!='all')
+		$var = strip_tags($var,$tags_permitidos);
+	}
+	$var = preg_replace("%[^A-Za-zÃÃ‰ÃÃ“Ãšáéíóú0-9<>\-\_@\.ñ/:, ".$tags_permitidos."]%", "", $var);
+	return $var;
+}
+ 
+
+# Funcion que aplica la funcion anterior
+# para no tener que preocuparnos por
+# ataques de XSS o SQLi
+function LimpiarArray($datos, $tags_permitidos=''){
+	if (empty($datos)) return false;
+	if(is_array($datos)){
+		foreach ($datos as $e=>$a) {
+			$tags_permitidos=(preg_match('%txt_%', $e))? $tags_permitidos='all':$tags_permitidos;
+			$data[$e] = limpia($a, $tags_permitidos,$e);
+		}
+	}else{
+		die("<font color=#ff0000><b>Error:</b></font> La funcion <b>LimpiarArray</b> debe contener un array.");
+	}
+	if (isset($data) and is_array($data))
+	return $data;	
+}
 // Register Widgets
 register_widget( 'widget_meenewsletter_plugin' );
 }
